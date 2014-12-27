@@ -1,0 +1,472 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:of="http://omnifaces.org/functions">
+    <f:metadata>
+        <f:viewParam name="id" value="#{productseditbean.product}" 
+                     converter="#{productsconverter}" converterMessage="Unknown stock, please use a link from within the system."
+        required="false" requiredMessage="Bad request, please use a link from within the system."
+    />
+    </f:metadata>    
+    <h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Inventory Management System</title>
+
+    <!-- Bootstrap core CSS -->
+    <h:outputStylesheet library="css" name="/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <h:outputStylesheet library="css" name="/sb-admin.css"/>
+    <h:outputStylesheet name="/webjars/font-awesome/4.1.0/css/font-awesome.css"/>
+    <h:outputStylesheet library="css" name="/jquery-ui.css"/>
+    <h:outputStylesheet library="css" name="/jquery.timepicker.css"/>
+
+    </h:head>
+    <h:body>
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Inventory System</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a href="#{request.contextPath}/Protected/Pages/LandingPage.xhtml">
+                        <i class="fa fa-sitemap fa-fw"></i> Home
+                    </a>
+                </li>                
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a href="#{request.contextPath}/Protected/Pages/Admin/ViewUsers.xhtml">
+                        <i class="fa fa-sitemap fa-fw"></i> Administration
+                    </a>
+                </li>                
+                <!-- /.dropdown -->                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <h:form>
+                                <h:commandLink value="Logout" action="#{authBean.logout}" styleClass="">
+                                </h:commandLink>
+                            </h:form>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown-user -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            
+            <div class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Users/Products.xhtml"><i class="fa fa-dashboard fa-fw"></i> Products</a>
+                        </li>
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Users/Warehouse.xhtml"><i class="fa fa-edit fa-fw"></i> Warehouse</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Production<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#{request.contextPath}/Protected/Pages/Users/PreProduction.xhtml">New Production</a>
+                                    </li>
+                                    <li>
+                                        <a href="#{request.contextPath}/Protected/Pages/Users/Production.xhtml">View Productions</a>
+                                    </li>                                   
+                                </ul>
+                        </li>
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Users/Reports.xhtml"><i class="fa fa-files-o fa-fw"></i> Reports</a>
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->            
+            
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Production</h3>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->                
+            <div class="row">
+                <div class="col-lg-12">
+                    <h:messages errorClass="alert alert-danger alert-dismissable" fatalClass="alert alert-danger alert-dismissable" infoClass="alert alert-success alert-dismissable"/>                    
+                <!-- /.col-lg-12 -->
+                    <div class="panel panel-default">
+                        <h:form id="productionForm">
+                            <h:inputHidden id="sg" value="#{productseditbean.product.productSG}"/>
+                            <h:inputHidden id="sgcurrent" value="#{productionManagedBean.production.productSG}"></h:inputHidden>
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-lg-5"> 
+                                    <div class="row show-grid">                                         
+                            <h:outputLabel value="New Production: "/> 
+                            &nbsp;
+                            <h:inputText id="dispcurrent" value="#{productseditbean.product.productName}" styleClass="form-control"></h:inputText>
+                            <h:inputHidden id="atmcurrent" value="#{productionManagedBean.production.productname}"></h:inputHidden>
+                            <h:outputLabel value="For: "/> 
+                            &nbsp;
+                            <h:inputText id="client" value="#{productionManagedBean.production.client}" styleClass="form-control" required="true" requiredMessage="Enter who Production is for"></h:inputText>                                                       
+                            <h:outputLabel value="Required Production Qty: "/>                              
+                            &nbsp;                            
+                            <h:inputText id="requiredQty" value="#{productionManagedBean.production.requiredqty}" styleClass="form-control" required="true" requiredMessage="Enter Production Quantity"></h:inputText>                           
+                            &nbsp; 
+                            <h:selectOneRadio onchange="reactToChangedRadio(); return false;" id="myRadio" layout="pageDirection" >
+                                          <f:selectItem itemLabel="Gallons" />
+                                          <f:selectItem itemLabel="Pails" />
+                                          <f:selectItem itemLabel="Drum" />
+                                          <f:selectItem itemLabel="Auto-calculate for Quantity" />
+                                </h:selectOneRadio>                             
+
+                                <h:inputHidden id="initial" value="#{productseditbean.product.productId}"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2"> 
+                                    <div class="row show-grid">                            
+                            <h:outputLabel value="Start Date: "/> 
+                            &nbsp;
+                            <h:inputText id="startDate" value="#{productionManagedBean.production.strdate}" styleClass="form-control datepicker" required="true" requiredMessage="Enter Production Start Date">
+                                <f:convertDateTime pattern="dd-MM-yyyy" />
+                            </h:inputText>
+                            <h:outputLabel value="End Date: "/> 
+                            &nbsp;
+                            <h:inputText id="endDate" value="#{productionManagedBean.production.enddate}" styleClass="form-control datepicker" required="true" requiredMessage="Enter Production End Date">
+                                <f:convertDateTime pattern="dd-MM-yyyy" />
+                            </h:inputText>                                                                                    
+                                    </div>
+                            <h:outputLabel value="RMCC STD: "/> 
+                            &nbsp;
+                            <h:inputText id="rmccStd" value="#{productionManagedBean.production.actualqty3}" styleClass="form-control" required="true" requiredMessage="Enter standard RMCC"></h:inputText>                                    
+                                </div>
+                                <div class="col-lg-2"> 
+                                    <div class="row show-grid">                                                        
+                            <h:outputLabel value="Start Time: "/> 
+                            &nbsp;                            
+                            <h:inputText id="startTime" value="#{productionManagedBean.production.strtime}" styleClass="form-control timepicker" required="true" requiredMessage="Enter Production Start Time"></h:inputText>
+                            <h:outputLabel value="End Time: "/> 
+                            &nbsp;                            
+                            <h:inputText id="endTime" value="#{productionManagedBean.production.endtime}" styleClass="form-control timepicker" required="true" requiredMessage="Enter Production End Time"></h:inputText>                           
+                                    </div>
+                                </div>  
+                                <div class="col-lg-3"> 
+                                    <div class="row show-grid">
+                            <label>Packaging:</label>
+                            <h:selectOneMenu id="packagingDropdown" value="#{productionManagedBean.production.packagetype}" styleClass="form-control">
+                                <f:selectItem itemLabel="" itemValue=""/>
+                                <f:selectItem itemLabel="Pail" itemValue="Pails"/>
+                                <f:selectItem itemLabel="Gallons" itemValue="Gallons"/>
+                                <f:selectItem itemLabel="Drum" itemValue="Drum"/>
+                            </h:selectOneMenu>
+                            &nbsp;
+                            <label>Container:</label>
+                            <h:selectOneMenu id="containertype" value="#{productionManagedBean.production.containertype}" styleClass="form-control">
+                                <f:selectItem itemLabel="" itemValue=""/>
+                                <f:selectItem itemLabel="Plastic" itemValue="Plastic"/>
+                                <f:selectItem itemLabel="Metal" itemValue="Metal"/>
+                            </h:selectOneMenu>
+                            &nbsp;
+                            <h:outputLabel value="Packaging Price: "/> 
+                            &nbsp;
+                            <h:inputText id="packaging" value="#{productionManagedBean.production.actualqty2}" styleClass="form-control" required="true" requiredMessage="Select packaging price"></h:inputText>                                                               
+                            &nbsp;
+                            <h:outputLabel value="Production Status : "/>                                       
+                            <h:selectOneMenu id="status" value="#{productionManagedBean.production.status}" styleClass="form-control">
+                                <f:selectItem itemLabel="Pending" itemValue="Pending"/> 
+                                <f:selectItem itemLabel="Completed" itemValue="Completed"/>
+                            </h:selectOneMenu>                                                                    
+                            &nbsp;
+                            <h:commandLink value="Initialise Production" onclick="updateValues();" styleClass="form-control btn btn-success"/>                                          
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-3"> 
+                                    <div class="row show-grid">
+                                        <h:outputLabel value="Input Codes : "/>
+                                        <h:inputHidden id="dispinputCodeSelect1" value="#{productseditbean.product.inputCode1}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect1" value="#{productionManagedBean.production.productcode1}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispinputCodeSelect2" value="#{productseditbean.product.inputCode2}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect2" value="#{productionManagedBean.production.productcode2}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect3" value="#{productseditbean.product.inputCode3}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect3" value="#{productionManagedBean.production.productcode3}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect4" value="#{productseditbean.product.inputCode4}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect4" value="#{productionManagedBean.production.productcode4}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect5" value="#{productseditbean.product.inputCode5}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect5" value="#{productionManagedBean.production.productcode5}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect6" value="#{productseditbean.product.inputCode6}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect6" value="#{productionManagedBean.production.productcode6}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect7" value="#{productseditbean.product.inputCode7}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect7" value="#{productionManagedBean.production.productcode7}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect8" value="#{productseditbean.product.inputCode8}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect8" value="#{productionManagedBean.production.productcode8}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect9" value="#{productseditbean.product.inputCode9}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect9" value="#{productionManagedBean.production.productcode9}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect10" value="#{productseditbean.product.inputCode10}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect10" value="#{productionManagedBean.production.productcode10}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect11" value="#{productseditbean.product.inputCode11}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect11" value="#{productionManagedBean.production.productcode11}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect12" value="#{productseditbean.product.inputCode12}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect12" value="#{productionManagedBean.production.productcode12}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect13" value="#{productseditbean.product.inputCode13}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect13" value="#{productionManagedBean.production.productcode13}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect14" value="#{productseditbean.product.inputCode14}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect14" value="#{productionManagedBean.production.productcode14}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect15" value="#{productseditbean.product.inputCode15}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect15" value="#{productionManagedBean.production.productcode15}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect16" value="#{productseditbean.product.inputCode16}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect16" value="#{productionManagedBean.production.productcode16}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect17" value="#{productseditbean.product.inputCode17}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect17" value="#{productionManagedBean.production.productcode17}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect18" value="#{productseditbean.product.inputCode18}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect18" value="#{productionManagedBean.production.productcode18}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect19" value="#{productseditbean.product.inputCode19}"></h:inputHidden>
+                                        <h:inputText id="inputCodeSelect19" value="#{productionManagedBean.production.productcode19}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;                                        
+                                        <h:inputHidden id="dispinputCodeSelect20" value="#{productseditbean.product.inputCode20}"></h:inputHidden>                                        
+                                        <h:inputText id="inputCodeSelect20" value="#{productionManagedBean.production.productcode20}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6(nested) -->
+                                <div class="col-lg-2">
+                                    <div class="row show-grid">
+                                        <h:outputLabel value="Standard Qty : "/>
+                                        <h:inputHidden id="dispqtyPerPail1" value="#{productseditbean.product.inputCodeQTY1}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail1" value="#{productionManagedBean.production.productqtyperpail1}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail2" value="#{productseditbean.product.inputCodeQTY2}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail2" value="#{productionManagedBean.production.productqtyperpail2}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail3" value="#{productseditbean.product.inputCodeQTY3}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail3" value="#{productionManagedBean.production.productqtyperpail3}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail4" value="#{productseditbean.product.inputCodeQTY4}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail4" value="#{productionManagedBean.production.productqtyperpail4}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail5" value="#{productseditbean.product.inputCodeQTY5}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail5" value="#{productionManagedBean.production.productqtyperpail5}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail6" value="#{productseditbean.product.inputCodeQTY6}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail6" value="#{productionManagedBean.production.productqtyperpail6}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail7" value="#{productseditbean.product.inputCodeQTY7}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail7" value="#{productionManagedBean.production.productqtyperpail7}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail8" value="#{productseditbean.product.inputCodeQTY8}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail8" value="#{productionManagedBean.production.productqtyperpail8}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail9" value="#{productseditbean.product.inputCodeQTY9}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail9" value="#{productionManagedBean.production.productqtyperpail9}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail10" value="#{productseditbean.product.inputCodeQTY10}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail10" value="#{productionManagedBean.production.productqtyperpail10}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail11" value="#{productseditbean.product.inputCodeQTY11}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail11" value="#{productionManagedBean.production.productqtyperpail11}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>                                        
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail12" value="#{productseditbean.product.inputCodeQTY12}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail12" value="#{productionManagedBean.production.productqtyperpail12}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>                                        
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail13" value="#{productseditbean.product.inputCodeQTY13}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail13" value="#{productionManagedBean.production.productqtyperpail13}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail14" value="#{productseditbean.product.inputCodeQTY14}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail14" value="#{productionManagedBean.production.productqtyperpail14}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail15" value="#{productseditbean.product.inputCodeQTY15}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail15" value="#{productionManagedBean.production.productqtyperpail15}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail16" value="#{productseditbean.product.inputCodeQTY16}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail16" value="#{productionManagedBean.production.productqtyperpail16}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail17" value="#{productseditbean.product.inputCodeQTY17}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail17" value="#{productionManagedBean.production.productqtyperpail17}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail18" value="#{productseditbean.product.inputCodeQTY18}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail18" value="#{productionManagedBean.production.productqtyperpail18}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail19" value="#{productseditbean.product.inputCodeQTY19}"></h:inputHidden>
+                                        <h:inputText id="qtyPerPail19" value="#{productionManagedBean.production.productqtyperpail19}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                        &nbsp;
+                                        <h:inputHidden id="dispqtyPerPail20" value="#{productseditbean.product.inputCodeQTY20}"></h:inputHidden>                                        
+                                        <h:inputText id="qtyPerPail20" value="#{productionManagedBean.production.productqtyperpail20}" styleClass="form-control" readonly="#{facesContext.renderResponse}"></h:inputText>
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6(nested) -->
+                                <div class="col-lg-2">
+                                    <div class="row show-grid">
+                                        <h:outputLabel value="Production QTY : "/>
+                                        <h:inputText id="productionQty1" class="totalprice" value="#{productionManagedBean.production.productionqty1}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty2" class="totalprice" value="#{productionManagedBean.production.productionqty2}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty3" class="totalprice" value="#{productionManagedBean.production.productionqty3}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty4" class="totalprice" value="#{productionManagedBean.production.productionqty4}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty5" class="totalprice" value="#{productionManagedBean.production.productionqty5}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty6" class="totalprice" value="#{productionManagedBean.production.productionqty6}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty7" class="totalprice" value="#{productionManagedBean.production.productionqty7}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty8" class="totalprice" value="#{productionManagedBean.production.productionqty8}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty9" class="totalprice" value="#{productionManagedBean.production.productionqty9}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty10" class="totalprice" value="#{productionManagedBean.production.productionqty10}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty11" class="totalprice" value="#{productionManagedBean.production.productionqty11}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty12" class="totalprice" value="#{productionManagedBean.production.productionqty12}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty13" class="totalprice" value="#{productionManagedBean.production.productionqty13}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty14" class="totalprice" value="#{productionManagedBean.production.productionqty14}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty15" class="totalprice" value="#{productionManagedBean.production.productionqty15}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty16" class="totalprice" value="#{productionManagedBean.production.productionqty16}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty17" class="totalprice" value="#{productionManagedBean.production.productionqty17}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty18" class="totalprice" value="#{productionManagedBean.production.productionqty18}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty19" class="totalprice" value="#{productionManagedBean.production.productionqty19}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="productionQty20" class="totalprice" value="#{productionManagedBean.production.productionqty20}" styleClass="form-control"></h:inputText>                                        
+                                    </div>
+                                </div>
+                                <!-- /.col-lg-6(nested) -->                                
+                            </div>
+                            <!-- /.row(nested) -->
+                            <div class="row">
+                                <h4>&nbsp; Additional Raw Materials</h4>
+                                <div class="col-lg-3"> 
+                                    <div class="row show-grid">
+                                        <h:outputLabel value="Input Codes : "/>
+                                        <h:selectOneMenu id="additionalCode1" value="#{productionManagedBean.production.addcode1}" styleClass="form-control">
+                                                <f:selectItem itemLabel="" itemValue=""/>
+                                                <f:selectItems value="#{rwcodeManagedBean.codeList}"/>
+                                            </h:selectOneMenu> 
+                                        &nbsp;
+                                            <h:selectOneMenu id="additionalCode2" value="#{productionManagedBean.production.addcode2}" styleClass="form-control">
+                                                <f:selectItem itemLabel="" itemValue=""/>
+                                                <f:selectItems value="#{rwcodeManagedBean.codeList}"/>
+                                            </h:selectOneMenu> 
+                                        &nbsp;
+                                            <h:selectOneMenu id="additionalCode3" value="#{productionManagedBean.production.addcode3}" styleClass="form-control">
+                                                <f:selectItem itemLabel="" itemValue=""/>
+                                                <f:selectItems value="#{rwcodeManagedBean.codeList}"/>
+                                            </h:selectOneMenu> 
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="row show-grid">
+                                        <h:outputLabel value="Production QTY : "/>
+                                        <h:inputText id="additionalProQty1" value="#{productionManagedBean.production.addprodqty1}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="additionalProQty2" value="#{productionManagedBean.production.addprodqty2}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="additionalProQty3" value="#{productionManagedBean.production.addprodqty3}" styleClass="form-control"></h:inputText>                                        
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <h:commandButton value="Add Production" type="submit" styleClass="btn btn-primary btn-lg" action="#{productionManagedBean.newProduction()}"></h:commandButton>
+                                        ||
+                                        <h:commandButton value="Add Next Production" type="submit" styleClass="btn btn-primary btn-lg" action="#{productionManagedBean.newNextProduction()}"></h:commandButton>
+                                        ||
+                                        <h:commandButton value="Reset" type="reset" styleClass="btn btn-primary btn-lg"></h:commandButton>                                                                    
+                        </div>
+                        <!-- /.panel-body -->
+                        </h:form>
+                    </div>
+                <!-- /.panel -->
+                </div>
+            <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+        </div>
+    <!-- /#wrapper -->    
+        
+        
+        
+    <!-- Core Scripts - Include with every page -->  
+    <h:outputScript library="js" name="jquery-1.10.2.js"/>    
+    <h:outputScript library="js" name="bootstrap.min.js"/>
+    <h:outputScript library="js" name="plugins/metisMenu/jquery.metisMenu.js"/>
+
+    <!-- Page-Level Plugin Scripts - Blank -->
+    <h:outputScript library="js" name="jquery-ui.js"/>
+    <h:outputScript library="js" name="jquery.timepicker.js"/>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <h:outputScript library="js" name="sb-admin.js"/>
+
+    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
+    <h:outputScript library="js" name="premier.js"/>
+
+    <script>
+    $(document).ready(function() {
+      $(".datepicker").datepicker({ 
+                        minDate: 0,
+                        dateFormat: 'dd-mm-yy'}).attr('readonly','readonly');
+      $(".timepicker").timepicker({ 'step': 5 });
+      //updateValues();
+    });        
+    </script>
+
+    </h:body>
+</html>
+

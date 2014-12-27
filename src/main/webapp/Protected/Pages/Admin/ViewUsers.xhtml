@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Inventory Management System</title>
+
+    <!-- Bootstrap core CSS -->
+    <h:outputStylesheet library="css" name="/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <h:outputStylesheet library="css" name="/sb-admin.css"/>
+    <h:outputStylesheet name="/webjars/font-awesome/4.1.0/css/font-awesome.css"/>
+    
+    </h:head>
+    <h:body>
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Inventory System</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a href="#{request.contextPath}/Protected/Pages/LandingPage.xhtml">
+                        <i class="fa fa-sitemap fa-fw"></i> Home
+                    </a>
+                </li>                
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a href="#{request.contextPath}/Protected/Pages/Users/Production.xhtml">
+                        <i class="fa fa-sitemap fa-fw"></i> Inventory
+                    </a>
+                </li>                
+                <!-- /.dropdown -->                              
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <h:form>
+                                <h:commandLink value="Logout" action="#{authBean.logout}">
+                                </h:commandLink>
+                            </h:form>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            
+            <div class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Admin/ViewUsers.xhtml"><i class="fa fa-dashboard fa-fw"></i> View Users</a>
+                        </li>
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Admin/AddUser.xhtml"><i class="fa fa-edit fa-fw"></i> Add User</a>
+                        </li>
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Admin/LoginHistory.xhtml"><i class="fa fa-table fa-fw"></i> View Log-In History</a>
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">View User</h3>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <h:messages errorClass="alert alert-danger" fatalClass="alert alert-danger" infoClass="alert alert-success"/>
+                <!-- /.col-lg-12 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Search and View System Users
+                        </div>
+                        <!-- /.panel-heading -->                       
+                        <div class="panel-body">
+                            <h:form id="form">
+                            <div class="table-responsive">                                
+                                &nbsp;
+                                <p:dataTable value="#{usersManagedBean.lazyUserModel}"
+                                	     widgetVar="userTable" 
+                                	     var="showUser" 
+                                	     rows="10" 
+                                	     rowsPerPageTemplate="5,10,15,35,50,100" 
+                                             paginator="true"
+                                             tableStyleClass="table table-striped table-bordered table-hover" 
+                                             lazy="true"
+                                             emptyMessage="No user found"
+                                             rowKey="#{showUser.id}"
+                                             paginatorPosition="top"
+                                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+                                    <f:facet name="header">
+                                        <p:outputPanel style="float: left">
+                                            <h:outputText value="Search: " />
+                                            <p:inputText id="globalFilter" onkeyup="PF('userTable').filter()" placeholder="Enter keyword" style="width:150px" />
+                                        </p:outputPanel>
+                                        <p:outputPanel>
+                                            <h:outputText value="Export Table Data to: " />
+                                            <h:commandButton value="PDF" action="#{usersManagedBean.Pdf}"/>
+                                        </p:outputPanel>
+                                    </f:facet>                                    
+                                    <p:column headerText="Username" sortBy="#{showUser.username}" filterBy="#{showUser.username}" filterStyle="display:none; visibility:hidden;">
+                                        <h:outputText value="#{showUser.username}"/>
+                                    </p:column>
+                                    <p:column headerText="First name" filterBy="#{showUser.firstname}" filterStyle="display:none; visibility:hidden;">                                         
+                                        <h:outputText value="#{showUser.firstname}"/>
+                                    </p:column>
+                                    <p:column headerText="Last name" filterBy="#{showUser.lastname}" filterStyle="display:none; visibility:hidden;">                                        
+                                        <h:outputText value="#{showUser.lastname}"/>
+                                    </p:column>
+                                    <p:column headerText="Level" sortBy="#{showUser.groupname}" filterBy="#{showUser.groupname}" filterStyle="display:none; visibility:hidden;">                                        
+                                        <h:outputText value="#{showUser.groupname}"/>
+                                    </p:column> 
+                                    <p:column rendered="false">                                         
+                                        <h:outputText value="#{showUser.id}"/>
+                                    </p:column>                                             
+                                    <p:column width="30%">
+                                        <p:button value="Edit" outcome="/Protected/Pages/Admin/EditUser.xhtml">
+                                            <f:param name="id" value="#{showUser.id}"/>
+                                        </p:button>
+                                        |
+                                        <p:commandButton onclick="if (! confirm('Are you sure, you want to delete #{showUser.username}?') ) { return false;}; return true;" value="Delete"  action="#{usersManagedBean.deleteUser(showUser)}">
+                                        </p:commandButton>
+                                    </p:column>
+
+                                </p:dataTable>
+                                    <h:link outcome="AddUser.xhtml" value="Add New User"/>
+                            </div>
+                            </h:form>                                    
+                        </div>
+                    </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+        </div>
+
+    </div>
+    <!-- /#wrapper -->
+        
+        
+        
+    <!-- Core Scripts - Include with every page -->  
+    <h:outputScript library="js" name="jquery-1.10.2.js"/>
+    <h:outputScript library="js" name="bootstrap.min.js"/>
+    <h:outputScript library="js" name="plugins/metisMenu/jquery.metisMenu.js"/>
+
+    <!-- Page-Level Plugin Scripts - Tables -->
+    <h:outputScript library="js" name="plugins/dataTables/jquery.dataTables.js"/>
+    <h:outputScript library="js" name="plugins/dataTables/dataTables.bootstrap.js"/>
+    
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <h:outputScript library="js" name="sb-admin.js"/>
+
+    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
+
+    </h:body>
+
+</html>
+

@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Inventory Management System</title>
+
+    <!-- Bootstrap core CSS -->
+    <h:outputStylesheet library="css" name="/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <h:outputStylesheet library="css" name="/sb-admin.css"/>
+    <h:outputStylesheet name="/webjars/font-awesome/4.1.0/css/font-awesome.css"/>
+    <h:outputStylesheet library="css" name="/jquery-ui.css"/>
+    <h:outputStylesheet library="css" name="/jquery.timepicker.css"/>
+
+    </h:head>
+    <h:body>
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Inventory System</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a href="#{request.contextPath}/Protected/Pages/LandingPage.xhtml">
+                        <i class="fa fa-sitemap fa-fw"></i> Home
+                    </a>
+                </li>                
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a href="#{request.contextPath}/Protected/Pages/Admin/ViewUsers.xhtml">
+                        <i class="fa fa-sitemap fa-fw"></i> Administration
+                    </a>
+                </li>                
+                <!-- /.dropdown -->                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <h:form>
+                                <h:commandLink value="Logout" action="#{authBean.logout}" styleClass="">
+                                </h:commandLink>
+                            </h:form>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown-user -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            
+            <div class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Users/Products.xhtml"><i class="fa fa-dashboard fa-fw"></i> Products</a>
+                        </li>
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Users/Warehouse.xhtml"><i class="fa fa-edit fa-fw"></i> Warehouse</a>
+                        </li>
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Users/Production.xhtml"><i class="fa fa-edit fa-fw"></i> Production</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Reports<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#{request.contextPath}/Protected/Pages/Users/Reports.xhtml">Production Date Reports</a>
+                                    </li>                                    
+                                    <li>
+                                        <a href="#{request.contextPath}/Protected/Pages/Users/ClientReports.xhtml">Production Client Reports</a>
+                                    </li>
+                                    <li>
+                                        <a href="#{request.contextPath}/Protected/Pages/Users/ProductReports.xhtml">Production Product Reports</a>
+                                    </li>
+                                    <li>
+                                        <a href="#{request.contextPath}/Protected/Pages/Users/WarehouseIssueReport.xhtml">Warehouse Issue Reports</a>
+                                    </li>
+                                    <li>
+                                        <a href="#{request.contextPath}/Protected/Pages/Users/WarehouseIssueParticularsReport.xhtml">Warehouse Issue Particulars Reports</a>
+                                    </li>                                    
+                                </ul>
+                        </li>                        
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->            
+            
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Reports</h3>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                <!-- /.col-lg-12 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Production Date Range Reports
+                        </div>
+                        <!-- /.panel-heading -->                       
+                        <div class="panel-body">
+                    <h:form>
+                            <div class="input-group custom-search-form">
+                                <h:outputLabel value="From: "/>
+                                <h:inputText id="fromDate" value="#{ReportsDAO.searchValue_1}" styleClass="form-control datepicker" required="true" requiredMessage="Enter a date to start search from">
+                                    <f:convertDateTime pattern="dd-MM-yyyy" />
+                                </h:inputText>
+                                <h:message for="fromDate" style="color:red"/>
+                            </div>
+                            <div class="input-group custom-search-form">
+                                <h:outputLabel value="To: "/>
+                                <h:inputText id="toDate" value="#{ReportsDAO.searchValue_2}" styleClass="form-control datepicker" required="true" requiredMessage="Enter date to stop search at">
+                                    <f:convertDateTime pattern="dd-MM-yyyy" />
+                                </h:inputText>
+                                <h:message for="toDate" style="color:red"/>
+                            </div>
+                        &nbsp;
+                            <div class="input-group custom-search-form"> 
+                                <h:commandButton value="Search" action="#{ReportsDAO.resukt()}" type="submit" styleClass="btn btn-primary"/>                                
+                            </div>                        
+                        <div>
+                        </div>
+                    </h:form> 
+                            <h:form rendered="#{empty ReportsDAO.productionList}" id="form2">                            
+                            <div class="table-responsive">
+                            &nbsp;                                
+                                <div class="alert alert-info">
+                                    <p>No records found!</p>
+                                </div>
+                            </div>
+                            </h:form>
+                            <h:form rendered="#{not empty ReportsDAO.productionList}" id="form">                            
+                            <div class="table-responsive">
+                                &nbsp;
+                                <h:outputText value="Export Table Data to: " />
+                                <h:commandButton value="PDF" actionListener="#{ReportsDAO.dateSearchPdf}"/>
+                                <h:dataTable value="#{ReportsDAO.productionList}" var="pList"
+                                             styleClass="table table-striped table-bordered table-hover">
+                                    <h:column>
+                                        <f:facet name="header">
+                                                Production
+                                        </f:facet> 
+                                        <h:outputText value="#{pList.productname}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                                ID
+                                        </f:facet>                                         
+                                        <h:outputText value="#{pList.productionbatch}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                                Quantity
+                                        </f:facet>                                         
+                                        <h:outputText value="#{pList.requiredqty}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                                Client
+                                        </f:facet>                                         
+                                        <h:outputText value="#{pList.client}"/>
+                                    </h:column> 
+                                    <h:column>
+                                        <f:facet name="header">
+                                                Status
+                                        </f:facet>                                         
+                                        <h:outputText value="#{pList.status}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                                Start date
+                                        </f:facet>                                         
+                                        <h:outputText value="#{pList.strdate}"><f:convertDateTime pattern="dd-MM-yyyy" /></h:outputText>
+                                    </h:column> 
+                                    <h:column>
+                                        <f:facet name="header">
+                                                End date
+                                        </f:facet>                                         
+                                        <h:outputText value="#{pList.enddate}"><f:convertDateTime pattern="dd-MM-yyyy" /></h:outputText>
+                                    </h:column>                                             
+                                </h:dataTable>
+                            </div>
+                            </h:form>                                    
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    </div>
+    <!-- /#wrapper -->    
+        
+        
+        
+    <!-- Core Scripts - Include with every page -->  
+    <h:outputScript library="js" name="jquery-1.10.2.js"/>
+    <h:outputScript library="js" name="bootstrap.min.js"/>
+    <h:outputScript library="js" name="plugins/metisMenu/jquery.metisMenu.js"/>
+
+    <!-- Page-Level Plugin Scripts - Blank -->
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <h:outputScript library="js" name="sb-admin.js"/>
+    <h:outputScript library="js" name="jquery-ui.js"/>
+    <h:outputScript library="js" name="jquery.timepicker.js"/>    
+
+    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
+    <script>
+    $(document).ready(function() {
+      $(".datepicker").datepicker({
+                        dateFormat: 'dd-mm-yy'});
+    });        
+    </script>
+    </h:body>
+</html>
+

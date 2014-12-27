@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Inventory Management System</title>
+
+    <!-- Bootstrap core CSS -->
+    <h:outputStylesheet library="css" name="/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <h:outputStylesheet library="css" name="/sb-admin.css"/>
+    <h:outputStylesheet name="/webjars/font-awesome/4.1.0/css/font-awesome.css"/>
+
+    </h:head>
+    <h:body>
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Inventory System</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a href="#{request.contextPath}/Protected/Pages/LandingPage.xhtml">
+                        <i class="fa fa-sitemap fa-fw"></i> Home
+                    </a>
+                </li>                
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a href="#{request.contextPath}/Protected/Pages/Admin/ViewUsers.xhtml">
+                        <i class="fa fa-sitemap fa-fw"></i> Administration
+                    </a>
+                </li>                
+                <!-- /.dropdown -->                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <h:form>
+                                <h:commandLink value="Logout" action="#{authBean.logout}" styleClass="">
+                                </h:commandLink>
+                            </h:form>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown-user -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            
+            <div class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Users/Products.xhtml"><i class="fa fa-dashboard fa-fw"></i> Products</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Warehouse<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#{request.contextPath}/Protected/Pages/Users/AddStock.xhtml">New Stock</a>
+                                    </li>
+                                    <li>
+                                        <a href="#{request.contextPath}/Protected/Pages/Users/Warehouse.xhtml">View Stock</a>
+                                    </li> 
+                                    <li>
+                                        <a href="#{request.contextPath}/Protected/Pages/Users/WarehouseIssue.xhtml">Warehouse Issue and Receive Records</a>
+                                    </li>                                   
+                                </ul>
+                        </li>
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Users/Production.xhtml"><i class="fa fa-edit fa-fw"></i> Production</a>
+                        </li>
+                        <li>
+                            <a href="#{request.contextPath}/Protected/Pages/Users/Reports.xhtml"><i class="fa fa-files-o fa-fw"></i> Reports</a>
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->            
+            
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Warehouse</h3>
+                </div>
+                <!-- /.col-lg-12 -->
+            <div class="row">
+                <div class="col-lg-12">            
+                <!-- /.col-lg-12 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Search and View Stock
+                        </div>
+                        &nbsp;
+                    <h:messages errorClass="alert alert-danger" fatalClass="alert alert-danger" infoClass="alert alert-success"/>                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <h:form id="form2">                            
+                            <div class="table-responsive">
+                                <p:dataTable value="#{warehouseManagedBean.lazyModel}" 
+                                             var="showStock"
+                                             id="warehouseDatatable"
+                                             widgetVar="warehouseTable"
+                                	     rows="10" 
+                                	     rowsPerPageTemplate="20,30,50,100,500,1000,10000" 
+                                             paginator="true"
+                                             tableStyleClass="table table-striped table-bordered table-hover" 
+                                             lazy="true"
+                                             emptyMessage="No raw materials found"
+                                             rowKey="#{showStock.stockid}"
+                                             paginatorPosition="top"
+                                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+                                    <f:facet name="header">
+                                        <p:outputPanel style="float: left">
+                                            <h:outputText value="Search: " />
+                                            <p:inputText id="globalFilter" onkeyup="PF('warehouseTable').filter()" placeholder="Enter keyword" style="width:150px" />
+                                        </p:outputPanel>
+                                        <p:outputPanel>
+                                            <h:outputText value="Export Table Data to: " />
+                                            <h:commandButton value="PDF" actionListener="#{warehouseManagedBean.Pdf}"/>
+                                        </p:outputPanel>
+                                    </f:facet>              
+                                    <p:column headerText="Raw Material" sortBy="#{showStock.rwcode}" filterBy="#{showStock.rwcode}" filterStyle="display:none; visibility:hidden;"> 
+                                        <h:outputText value="#{showStock.rwcode}"/>
+                                    </p:column>
+                                    <p:column headerText="Stock Balance" width="15%">                                         
+                                        <h:outputText value="#{showStock.quantity}"><f:convertNumber pattern="#0.0"/></h:outputText>
+                                    </p:column>
+                                    <p:column headerText="Cost" width="15%">                                        
+                                        <h:outputText value="#{showStock.cost}"/>
+                                    </p:column>
+                                    <p:column headerText="Value" width="15%">                                         
+                                        <h:outputText value="#{showStock.stockValue}"><f:convertNumber type="currency" currencySymbol="₦"/></h:outputText>
+                                    </p:column>
+                                    <p:column rendered="false">                                         
+                                        <h:outputText value="#{showStock.stockid}"/>
+                                    </p:column>                                    
+                                    <p:column width="35%">
+                                        <c:if test="#{request.isUserInRole('users')}">
+                                        <p:button value="Edit" outcome="/Protected/Pages/Users/EditStock.xhtml">
+                                            <f:param name="id" value="#{showStock.stockid}"/>
+                                        </p:button>
+                                            |
+                                        <p:button value="Update Stock" outcome="/Protected/Pages/Users/UpdateStock.xhtml">
+                                            <f:param name="id" value="#{showStock.stockid}"/>
+                                        </p:button>                                            
+                                        </c:if>
+                                        <c:if test="#{request.isUserInRole('admin')}">
+                                        <p:button value="Edit" outcome="/Protected/Pages/Users/EditStock.xhtml">
+                                            <f:param name="id" value="#{showStock.stockid}"/>
+                                        </p:button>
+                                            |
+                                        <p:button value="Update Stock" outcome="/Protected/Pages/Users/UpdateStock.xhtml">
+                                            <f:param name="id" value="#{showStock.stockid}"/>
+                                        </p:button>                                             
+                                            |
+                                            <p:commandButton onclick="if (! confirm('Are you sure, you want to delete #{showStock.rwcode} of Id #{showStock.stockid}?') ) { return false;}; return true;" value="Delete" action="#{warehouseManagedBean.deleteStock(showStock)}">
+                                            </p:commandButton>                                         
+                                        </c:if>                                        
+                                    </p:column>
+                                </p:dataTable>
+                                
+                                <h:link outcome="AddStock.xhtml" value="Add New Stock"/>
+                            </div>
+                            </h:form>                                    
+                        </div>                            
+                    </div>
+            </div>
+            <!-- /.row -->
+        </div>                
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->    
+        
+        
+        
+    <!-- Core Scripts - Include with every page -->  
+    <h:outputScript library="js" name="jquery-1.10.2.js"/>
+    <h:outputScript library="js" name="bootstrap.min.js"/>
+    <h:outputScript library="js" name="plugins/metisMenu/jquery.metisMenu.js"/>
+
+    <!-- Page-Level Plugin Scripts - Tables -->
+    <h:outputScript library="js" name="plugins/dataTables/jquery.dataTables.js"/>
+    <h:outputScript library="js" name="plugins/dataTables/dataTables.bootstrap.js"/>    
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <h:outputScript library="js" name="sb-admin.js"/>
+
+    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
+
+    </h:body>
+</html>
+

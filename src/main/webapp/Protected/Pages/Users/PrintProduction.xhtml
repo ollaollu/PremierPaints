@@ -1,0 +1,1141 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:metadata>
+        <f:viewParam name="id" value="#{productionEditBean.production}" 
+                     converter="#{productionconverter}" converterMessage="Unknown stock, please use a link from within the system."
+        required="true" requiredMessage="Bad request, please use a link from within the system."
+    />
+    </f:metadata>     
+    <h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Inventory Management System</title>
+
+    <!-- Bootstrap core CSS -->
+    <h:outputStylesheet library="css" name="/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <h:outputStylesheet name="/webjars/font-awesome/4.1.0/css/font-awesome.css"/>
+    <style>
+    table, th, td {
+        //border: 1px solid black;
+    }
+    </style>
+
+    </h:head>
+    <h:body>
+
+    <div id="container">
+        <div id="printableArea">
+
+                <div class="col-lg-12">
+                    <h5>
+                        <b>
+                        <p>PREMIER PAINTS PLC PRODUCTION WORKSHEET</p>
+                        </b>
+                    </h5>
+                </div>
+                <!-- /.col-lg-12 -->
+                <!-- TABLE 1 -->
+                <table style="width:100%" border="2">
+                    <tr>
+                        <td><p><b> PRODUCT DESCRIPTION: </b> <h:outputText value="#{productionEditBean.production.productname}"/> &nbsp;&nbsp; <b> BATCH: </b> <h:outputText value="#{productionEditBean.production.productionbatch}"></h:outputText></p>
+                            <p><b> CLIENT: </b> <h:outputText value="#{productionEditBean.production.client}"/></p>
+                        </td>
+                        <td>
+                            <p><b> COMMENCED: </b> <h:outputText value="#{productionEditBean.production.strdate}"><f:convertDateTime pattern="dd-MM-yyyy" /></h:outputText></p>
+                            <p><b> COMPLETED: </b> <h:outputText value="#{productionEditBean.production.enddate}"><f:convertDateTime pattern="dd-MM-yyyy" /></h:outputText></p>
+                        </td>
+                    </tr>
+                </table>
+                <!-- TABLE 2 -->
+                <table style="width:100%" border="2">
+                    <tr>
+                        <th>APPROVAL TO MANUFACTURE</th>
+                        <th></th>
+                        <th>YIELD%</th>
+                        <th>TINTING GROUP</th>
+                        <th></th>
+                        <th>PRODUCT NO</th>
+                        <th>FILLED BY</th>
+                        <th>DATE</th>
+                        <th></th>
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>		
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.createdby}"/></td>		
+                        <td><h:outputText value="#{productionEditBean.production.timecreated}"><f:convertDateTime pattern="dd-MM-yyyy" /></h:outputText></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <!-- TABLE 3 -->
+                <table style="width:100%" border="2">
+                    <tr>
+                        <th>Instruction</th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode1}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode2}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode3}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode4}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode5}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode6}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode7}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode8}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode9}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode10}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode11}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode12}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode13}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode14}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode15}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode16}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode17}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode18}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode19}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.productcode20}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.addcode1}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.addcode2}"/></th>
+                        <th><h:outputText value="#{productionEditBean.production.addcode3}"/></th>
+                        <th style="text-align:center"><b>COST</b></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                           
+                        </td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty1}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>MATERIALS | <h:outputText value="#{productionEditBean.production.actualqty6}"/></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                        
+                        </td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty2}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>PACKAGE | <h:outputText value="#{productionEditBean.production.packagetype}"/>(<h:outputText value="#{productionEditBean.production.containertype}"/>)</td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                        
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty3}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>PRICE | <h:outputText value="#{productionEditBean.production.actualqty2}"/></td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty4}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>COST | <h:outputText value="#{productionEditBean.production.actualqty7}"><f:convertNumber type="currency" currencySymbol="₦"/></h:outputText></td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                        
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty5}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                            </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty6}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td align="center"><b>FILLING DATA</b></td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty7}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>ACTUAL | </td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty8}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>EXPECTED | <h:outputText value="#{productionEditBean.production.requiredqty}"/></td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty9}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>RMCC STD | <h:outputText value="#{productionEditBean.production.actualqty3}"/></td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty10}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>RMCC ACTUAL | <h:outputText value="#{productionEditBean.production.actualqty5}"/></td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty11}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>VARIANCE | <h:outputText value="#{productionEditBean.production.actualqty4}"/></td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty12}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                        
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty13}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td align="center"><b>QUALITY DATA</b></td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty14}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>VISCOSITY | </td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty15}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>WPL | </td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty16}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>DRYING TIME | </td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty17}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>GLOSS | </td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty18}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>OPACITY | </td>
+                    </tr>
+                    <tr>
+                      <td>
+                           <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                        
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty19}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>COLOUR | </td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.productionqty20}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>FLOAT | </td>
+                    </tr>
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.addprodqty1}"/></td>
+                        <td></td>
+                        <td></td>
+                        <td>DISPERSION | </td>
+                    </tr> 
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.addprodqty2}"/></td>
+                        <td></td>
+                        <td></td>
+                    </tr> 
+                    <tr>
+                      <td>
+                            <select>
+                                <option></option>
+                                <option>Add To Mixer</option>
+                                <option>Mix And Add</option>
+                                <option>Dissolve Completely And Add</option>
+                                <option>Mix And Tint</option>
+                                <option>Run For 5mins And Add</option>
+                                <option>Run For 30mins And Add</option>
+                                <option>Add To Attrictor</option>
+                                <option>Run For 1 Hour</option>
+                                <option>Run For 1 Hour 30mins</option>
+                                <option>Run For 3 Hours</option>
+                                <option>Drop Out With</option>
+                                <option>Add And Stabilize With</option>
+                          </select>                         
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h:outputText value="#{productionEditBean.production.addprodqty3}"/></td>
+                        <td><b>TOTAL</b> | <h:outputText value="#{productionEditBean.production.actualqty1}"><f:convertNumber type="currency" currencySymbol="₦"/></h:outputText></td>
+                    </tr>                     
+                </table>
+            <!-- /.row -->
+        <!-- /#page-wrapper -->
+        </div>
+                        &nbsp;
+                <div>
+                    <button onclick="printDiv('printableArea')" class="btn btn-primary">Print Production</button>
+                </div>
+    </div>
+    <!-- /#wrapper -->    
+        
+        
+        
+    <!-- Core Scripts - Include with every page -->  
+    <h:outputScript library="js" name="jquery-1.10.2.js"/>
+    <h:outputScript library="js" name="bootstrap.min.js"/>
+    <h:outputScript library="js" name="plugins/metisMenu/jquery.metisMenu.js"/>
+
+    <!-- Page-Level Plugin Scripts - Blank -->
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <h:outputScript library="js" name="sb-admin.js"/>
+
+    <!-- Page-Level Demo Scripts - Blank - Use for reference -->
+    <script>
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+    </script>    
+
+    </h:body>
+</html>
+

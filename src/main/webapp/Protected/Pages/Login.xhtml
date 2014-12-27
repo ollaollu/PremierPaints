@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Inventory Management System</title>
+
+    <!-- Bootstrap core CSS -->
+    <h:outputStylesheet library="css" name="/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <h:outputStylesheet library="css" name="/signin.css"/>
+    <h:outputStylesheet library="css" name="/sticky-footer.css"/>
+
+    </h:head>
+    
+    <h:body>
+    <div class="container">
+
+        <!--<form class="form-signin" role="form" action="j_security_check" method="POST" autocomplete="off">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input name="j_username" type="text" class="form-control" placeholder="Username" required="true"> </input>
+        <input name="j_password" type="password" class="form-control" placeholder="Password" required="true"> </input>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Login">Sign in</button>
+      </form>-->
+        <h:form styleClass="form-signin">
+            <c:if test="${not empty loggedInUser}">
+                <p>You're still logged in as #{loggedInUser}!</p>
+                <p>
+                    <h:link value="Return to Home" outcome="/Protected/Pages/LandingPage"/>
+                </p>                
+            </c:if>
+            <c:if test="${empty loggedInUser}">
+                <p>You're not logged in!</p>
+            </c:if>
+            <h:messages styleClass="alert alert-danger" />
+            <h2 class="form-signin-heading">Please sign in</h2>
+                <h:outputLabel for="username" value="Username:" />  
+                <h:inputText id="username" value="#{authBean.username}" styleClass="form-control" required="true" />  
+                                  
+                <h:outputLabel for="password" value="Password:" />  
+                <h:inputSecret id="password" value="#{authBean.password}" styleClass="form-control" required="true" />  
+                                  
+                <h:commandButton id="loginButton" value="Login" action="#{authBean.login()}" styleClass="btn btn-lg btn-primary btn-block" />  
+        </h:form>
+
+    </div> <!-- /container -->
+        
+    <div class="footer">
+      <div class="container">
+          <p class="text-muted"> Developed for <a href="http://getbootstrap.com">Premier Paints</a>, by <a href="https://twitter.com/ksmxr">@ksmxr</a>.</p>
+      </div>
+    </div>    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    </h:body>
+</html>
+

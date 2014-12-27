@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" type="image/ico" href="resources/images/favicon.ico"/>
+
+    <title>Inventory Management System</title>
+
+    <!-- Bootstrap core CSS -->
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <h:outputStylesheet library="css" name="LoginError.css"/>
+    
+    </h:head>
+    <h:body>
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead">
+            <h1 class="cover-heading">Access Denied</h1>
+            <p class="lead">Your credentials could not be verified or you are not authorized to view the content you desire.</p>            
+          </div>
+            
+          <div class="inner">
+              <h:link value="Home" outcome="/Protected/Pages/LandingPage" styleClass="btn btn-lg btn-default"/>
+              |
+              <h:link value="Previous Page" onclick="history.back(-1);return false" styleClass="btn btn-lg btn-default"/>              
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+                <p>Developed for <a href="http://premierpaintsplc.com" target="_blank">Premier Paints</a>, by <a href="https://twitter.com/ksmxr" target="_blank">@ksmxr</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    </h:body>
+</html>
+
