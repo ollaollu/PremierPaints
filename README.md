@@ -1,4 +1,4 @@
-PremierPaints
+Premier Paints Inventory System
 =============
 
-Inventory system javaee
+Inventory system written in JavaEE with JSF and Primefaces
