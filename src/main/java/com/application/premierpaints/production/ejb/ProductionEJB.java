@@ -744,73 +744,73 @@ public class ProductionEJB {
         entity.setActualqty5(a);        
                 
                 if(update){
-                    if(newDbQty1!=0){
+                    if(!inputCode1.isEmpty()){    
                         pwr.updateWarehouse(newDbQty1, sBatch1);
                     }
-                    if(newDbQty2!=0){
+                    if(!inputCode2.isEmpty()){
                         pwr.updateWarehouse(newDbQty2, sBatch2);
                     }
-                    if(newDbQty3!=0){
+                    if(!inputCode3.isEmpty()){
                         pwr.updateWarehouse(newDbQty3, sBatch3);
                     }
-                    if(newDbQty4!=0){
+                    if(!inputCode4.isEmpty()){
                         pwr.updateWarehouse(newDbQty4, sBatch4);
                     }
-                    if(newDbQty5!=0){
+                    if(!inputCode5.isEmpty()){
                         pwr.updateWarehouse(newDbQty5, sBatch5);
                     }
-                    if(newDbQty6!=0){
+                    if(!inputCode6.isEmpty()){
                         pwr.updateWarehouse(newDbQty6, sBatch6);
                     }
-                    if(newDbQty7!=0){
+                    if(!inputCode7.isEmpty()){
                         pwr.updateWarehouse(newDbQty7, sBatch7);
                     }
-                    if(newDbQty8!=0){
+                    if(!inputCode8.isEmpty()){
                         pwr.updateWarehouse(newDbQty8, sBatch8);
                     }
-                    if(newDbQty9!=0){
+                    if(!inputCode9.isEmpty()){
                         pwr.updateWarehouse(newDbQty9, sBatch9);
                     }
-                    if(newDbQty10!=0){
+                    if(!inputCode10.isEmpty()){
                         pwr.updateWarehouse(newDbQty10, sBatch10);
                     }
-                    if(newDbQty11!=0){
+                    if(!inputCode11.isEmpty()){
                         pwr.updateWarehouse(newDbQty11, sBatch11);
                     }
-                    if(newDbQty12!=0){
+                    if(!inputCode12.isEmpty()){
                         pwr.updateWarehouse(newDbQty12, sBatch12);
                     }
-                    if(newDbQty13!=0){
+                    if(!inputCode13.isEmpty()){
                         pwr.updateWarehouse(newDbQty13, sBatch13);
                     }
-                    if(newDbQty14!=0){
+                    if(!inputCode14.isEmpty()){
                         pwr.updateWarehouse(newDbQty14, sBatch14);
                     }
-                    if(newDbQty15!=0){
+                    if(!inputCode15.isEmpty()){
                         pwr.updateWarehouse(newDbQty15, sBatch15);
                     }
-                    if(newDbQty16!=0){
+                    if(!inputCode16.isEmpty()){
                         pwr.updateWarehouse(newDbQty16, sBatch16);
                     }
-                    if(newDbQty17!=0){
+                    if(!inputCode17.isEmpty()){
                         pwr.updateWarehouse(newDbQty17, sBatch17);
                     }
-                    if(newDbQty18!=0){
+                    if(!inputCode18.isEmpty()){
                         pwr.updateWarehouse(newDbQty18, sBatch18);
                     }
-                    if(newDbQty19!=0){
+                    if(!inputCode19.isEmpty()){
                         pwr.updateWarehouse(newDbQty19, sBatch19);
                     }
-                    if(newDbQty20!=0){
+                    if(!inputCode20.isEmpty()){
                         pwr.updateWarehouse(newDbQty20, sBatch20);
                     }
-                    if(newDbQty21!=0){
+                    if(inputCode21!=null){
                         pwr.updateWarehouse(newDbQty21, sBatch21);
                     }
-                    if(newDbQty22!=0){
+                    if(inputCode22!=null){
                         pwr.updateWarehouse(newDbQty22, sBatch22);
                     }
-                    if(newDbQty23!=0){
+                    if(inputCode23!=null){
                         pwr.updateWarehouse(newDbQty23, sBatch23);
                     }
                     entityManager.merge(entity);
