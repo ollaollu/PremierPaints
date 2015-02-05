@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:metadata>
+        <f:viewParam name="id" value="#{productseditbean.product}" 
+                     converter="#{productsconverter}" converterMessage="Unknown product, please use a link from within the system."
+        required="true" requiredMessage="Bad request, please use a link from within the system."
+    />
+    </f:metadata>     
+    <h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Inventory Management System</title>
+
+    <!-- Bootstrap core CSS -->
+    <h:outputStylesheet library="css" name="/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <h:outputStylesheet name="/webjars/font-awesome/4.1.0/css/font-awesome.css"/>
+    <style>
+    table, th, td {
+        //border: 1px solid black;
+    }
+    </style>
+
+    </h:head>
+    <h:body>
+    <div id="wrapper">        
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header" align="center">Show Product</h3>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div> 
+                <!-- /.row -->
+                    <div class="row">
+                        <div class="col-lg-12">            
+                        <!-- /.col-lg-12 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-lg-4"> 
+                                        </div>                                        
+                                        <div class="col-lg-4"> 
+                                            <div class="row show-grid" align="center">
+                                                <label>Product Name:</label>
+                                                <h:outputText id="firstname" styleClass="form-control" value="#{productseditbean.product.productName}"></h:outputText>
+                                                <label>Product S.G:</label>
+                                                <h:outputText id="lastname" styleClass="form-control" value="#{productseditbean.product.productSG}"></h:outputText>
+                                                <label>Shade:</label>
+                                                <h:outputText id="username" styleClass="form-control" value="#{productseditbean.product.productShade}"></h:outputText>                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4"> 
+                                        </div>                                        
+                                    </div>
+                                </div>                        
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-3"> 
+                                            <div class="row show-grid">
+                                                &nbsp;
+                                                <label>Input Code 1:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode1}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 2:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode2}"></h:outputText>                                                
+                                                &nbsp;
+                                                <label>Input Code 3:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode3}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 4:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode4}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 5:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode5}"></h:outputText>                                                
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3"> 
+                                            <div class="row show-grid">
+                                                &nbsp;
+                                                <label>Input Code 6:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode6}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 7:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode7}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 8:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode8}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 9:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode9}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 10:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode10}"></h:outputText>                                                
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3"> 
+                                            <div class="row show-grid">
+                                                &nbsp;
+                                                <label>Input Code 11:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode11}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 12:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode12}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 13:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode13}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 14:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode14}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 15:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode15}"></h:outputText>                                                
+                                                &nbsp;
+                                            </div>
+                                        </div> 
+                                        <div class="col-lg-3"> 
+                                            <div class="row show-grid">
+                                                &nbsp;
+                                                <label>Input Code 16:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode16}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 17:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode17}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 18:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode18}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 19:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode19}"></h:outputText>
+                                                &nbsp;
+                                                <label>Input Code 20:</label>
+                                                <h:outputText id="inputCodeSelect1" styleClass="form-control" value="#{productseditbean.product.inputCode20}"></h:outputText>                                                
+                                                &nbsp;
+                                            </div>
+                                        </div>                                         
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- /.row -->
+                    </div>                 
+                <!-- /.row -->
+            </div>        
+            <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->    
+        
+        
+        
+    <!-- Core Scripts - Include with every page -->  
+    <h:outputScript library="js" name="jquery-1.10.2.js"/>
+    <h:outputScript library="js" name="bootstrap.min.js"/>
+    <h:outputScript library="js" name="plugins/metisMenu/jquery.metisMenu.js"/>
+
+    <!-- Page-Level Plugin Scripts - Blank -->
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <h:outputScript library="js" name="sb-admin.js"/>
+
+    <!-- Page-Level Demo Scripts - Blank - Use for reference -->   
+
+    </h:body>
+</html>
+
