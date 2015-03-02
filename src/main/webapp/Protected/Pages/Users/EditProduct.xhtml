@@ -314,25 +314,7 @@
                                             </h:selectOneMenu>
                                             <label>Input Code 18 QTY per Gal/Pail:</label>
                                             <h:inputText id="inputCodeSelect18QTY" styleClass="form-control" value="#{productseditbean.product.inputCodeQTY18}"></h:inputText>                                            
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Material Input Code 19:</label>
-                                            <h:selectOneMenu id="inputCodeSelect19" value="#{productseditbean.product.inputCode19}" styleClass="form-control">
-                                                <f:selectItem itemLabel="" itemValue=""/>  
-                                                <f:selectItems value="#{rwcodeManagedBean.codeList}" var="codeList" itemValue="#{codeList.rwcodename}"/>                                                
-                                            </h:selectOneMenu>
-                                            <label>Input Code 19 QTY per Gal/Pail:</label>
-                                            <h:inputText id="inputCodeSelect19QTY" styleClass="form-control" value="#{productseditbean.product.inputCodeQTY19}"></h:inputText>                                            
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Material Input Code 20:</label>
-                                            <h:selectOneMenu id="inputCodeSelect20" value="#{productseditbean.product.inputCode20}" styleClass="form-control">
-                                                <f:selectItem itemLabel="" itemValue=""/>  
-                                                <f:selectItems value="#{rwcodeManagedBean.codeList}" var="codeList" itemValue="#{codeList.rwcodename}"/>                                                
-                                            </h:selectOneMenu>
-                                            <label>Input Code 20 QTY per Gal/Pail:</label>
-                                            <h:inputText id="inputCodeSelect20QTY" styleClass="form-control" value="#{productseditbean.product.inputCodeQTY20}"></h:inputText>                                            
-                                        </div>                                             
+                                        </div>                                            
                                         </div>
                                         <h:commandButton value="Update" type="submit" styleClass="btn btn-default" action="#{productseditbean.saveProduct()}"></h:commandButton>
                                         ||

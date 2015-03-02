@@ -246,11 +246,7 @@
                                         &nbsp;                                        
                                         <h:inputText id="inputCodeSelect17" value="#{productionEditBean.production.productcode17}" styleClass="form-control" readonly="true"></h:inputText>
                                         &nbsp;                                        
-                                        <h:inputText id="inputCodeSelect18" value="#{productionEditBean.production.productcode18}" styleClass="form-control" readonly="true"></h:inputText>
-                                        &nbsp;                                        
-                                        <h:inputText id="inputCodeSelect19" value="#{productionEditBean.production.productcode19}" styleClass="form-control" readonly="true"></h:inputText>
-                                        &nbsp;                                        
-                                        <h:inputText id="inputCodeSelect20" value="#{productionEditBean.production.productcode20}" styleClass="form-control" readonly="true"></h:inputText>                                        
+                                        <h:inputText id="inputCodeSelect18" value="#{productionEditBean.production.productcode18}" styleClass="form-control" readonly="true"></h:inputText>                                        
                                     </div>
                                 </div>
                                 <!-- /.col-lg-6(nested) -->
@@ -291,11 +287,7 @@
                                         &nbsp;
                                         <h:inputText id="qtyPerPail17" value="#{productionEditBean.production.productqtyperpail17}" styleClass="form-control" readonly="true"></h:inputText>
                                         &nbsp;
-                                        <h:inputText id="qtyPerPail18" value="#{productionEditBean.production.productqtyperpail18}" styleClass="form-control" readonly="true"></h:inputText>
-                                        &nbsp;
-                                        <h:inputText id="qtyPerPail19" value="#{productionEditBean.production.productqtyperpail19}" styleClass="form-control" readonly="true"></h:inputText>
-                                        &nbsp;
-                                        <h:inputText id="qtyPerPail20" value="#{productionEditBean.production.productqtyperpail20}" styleClass="form-control" readonly="true"></h:inputText>                                        
+                                        <h:inputText id="qtyPerPail18" value="#{productionEditBean.production.productqtyperpail18}" styleClass="form-control" readonly="true"></h:inputText>                                        
                                     </div>
                                 </div>
                                 <!-- /.col-lg-6(nested) -->                                
@@ -336,11 +328,7 @@
                                         &nbsp;
                                         <h:inputText id="productionQty17" value="#{productionEditBean.production.productionqty17}" styleClass="form-control"></h:inputText>
                                         &nbsp;
-                                        <h:inputText id="productionQty18" value="#{productionEditBean.production.productionqty18}" styleClass="form-control"></h:inputText>
-                                        &nbsp;
-                                        <h:inputText id="productionQty19" value="#{productionEditBean.production.productionqty19}" styleClass="form-control"></h:inputText>
-                                        &nbsp;
-                                        <h:inputText id="productionQty20" value="#{productionEditBean.production.productionqty20}" styleClass="form-control"></h:inputText>                                        
+                                        <h:inputText id="productionQty18" value="#{productionEditBean.production.productionqty18}" styleClass="form-control"></h:inputText>                                        
                                     </div>
                                 </div>
                                 <!-- /.col-lg-6(nested) -->
@@ -382,10 +370,6 @@
                                         <h:inputText id="addition17" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
                                         &nbsp;
                                         <h:inputText id="addition18" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
-                                        &nbsp;
-                                        <h:inputText id="addition19" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
-                                        &nbsp;
-                                        <h:inputText id="addition20" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
                                         &nbsp;                                        
                                     </div>
                                 </div>
@@ -410,7 +394,32 @@
                                             <h:selectOneMenu id="additionalCode3" value="#{productionEditBean.production.addcode3}" styleClass="form-control">
                                                 <f:selectItem itemLabel="" itemValue=""/>
                                                 <f:selectItems value="#{rwcodeManagedBean.codeList}"/>
-                                            </h:selectOneMenu> 
+                                            </h:selectOneMenu>
+                                        &nbsp;
+                                            <h:selectOneMenu id="additionalCode4" value="#{productionEditBean.production.addcode4}" styleClass="form-control">
+                                                <f:selectItem itemLabel="" itemValue=""/>
+                                                <f:selectItems value="#{rwcodeManagedBean.codeList}"/>
+                                            </h:selectOneMenu>
+                                        &nbsp;
+                                            <h:selectOneMenu id="additionalCode5" value="#{productionEditBean.production.addcode5}" styleClass="form-control">
+                                                <f:selectItem itemLabel="" itemValue=""/>
+                                                <f:selectItems value="#{rwcodeManagedBean.codeList}"/>
+                                            </h:selectOneMenu>
+                                        &nbsp;
+                                            <h:selectOneMenu id="additionalCode6" value="#{productionEditBean.production.addcode6}" styleClass="form-control">
+                                                <f:selectItem itemLabel="" itemValue=""/>
+                                                <f:selectItems value="#{rwcodeManagedBean.codeList}"/>
+                                            </h:selectOneMenu>
+                                        &nbsp;
+                                            <h:selectOneMenu id="additionalCode7" value="#{productionEditBean.production.addcode7}" styleClass="form-control">
+                                                <f:selectItem itemLabel="" itemValue=""/>
+                                                <f:selectItems value="#{rwcodeManagedBean.codeList}"/>
+                                            </h:selectOneMenu>
+                                        &nbsp;
+                                            <h:selectOneMenu id="additionalCode8" value="#{productionEditBean.production.addcode8}" styleClass="form-control">
+                                                <f:selectItem itemLabel="" itemValue=""/>
+                                                <f:selectItems value="#{rwcodeManagedBean.codeList}"/>
+                                            </h:selectOneMenu>                                        
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
@@ -421,17 +430,37 @@
                                         <h:inputText id="additionalProQty2" value="#{productionEditBean.production.addprodqty2}" styleClass="form-control"></h:inputText>
                                         &nbsp;
                                         <h:inputText id="additionalProQty3" value="#{productionEditBean.production.addprodqty3}" styleClass="form-control"></h:inputText>                                        
+                                        &nbsp;
+                                        <h:inputText id="additionalProQty4" value="#{productionEditBean.production.addprodqty4}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="additionalProQty5" value="#{productionEditBean.production.addprodqty5}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="additionalProQty6" value="#{productionEditBean.production.addprodqty6}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="additionalProQty7" value="#{productionEditBean.production.addprodqty7}" styleClass="form-control"></h:inputText>
+                                        &nbsp;
+                                        <h:inputText id="additionalProQty8" value="#{productionEditBean.production.addprodqty8}" styleClass="form-control"></h:inputText>
                                     </div>                                    
                                 </div>
                                 <div class="col-lg-2">
                                     <div class="row show-grid">
                                         <h:outputLabel value="Addition : "/>
+                                        <h:inputText id="addition19" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
+                                        &nbsp;
+                                        <h:inputText id="addition20" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
+                                        &nbsp;
                                         <h:inputText id="addition21" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
                                         &nbsp;
                                         <h:inputText id="addition22" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
                                         &nbsp;
                                         <h:inputText id="addition23" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
-                                        &nbsp;                                       
+                                        &nbsp;
+                                        <h:inputText id="addition24" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
+                                        &nbsp;
+                                        <h:inputText id="addition25" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
+                                        &nbsp;
+                                        <h:inputText id="addition26" styleClass="form-control" onkeyup="calculateProductionAddition()"></h:inputText>                                       
+                                        &nbsp;
                                     </div>
                                 </div>                                
                             </div>

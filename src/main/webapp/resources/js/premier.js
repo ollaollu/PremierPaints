@@ -18,8 +18,6 @@
             var qty16 = document.getElementById("productionForm:dispqtyPerPail16").value;
             var qty17 = document.getElementById("productionForm:dispqtyPerPail17").value;
             var qty18 = document.getElementById("productionForm:dispqtyPerPail18").value;
-            var qty19 = document.getElementById("productionForm:dispqtyPerPail19").value;
-            var qty20 = document.getElementById("productionForm:dispqtyPerPail20").value;
             var productionName = document.getElementById("productionForm:dispcurrent").value;
             var sg = document.getElementById("productionForm:sg").value;
             //document.ge
@@ -41,10 +39,8 @@
             var code16 = document.getElementById("productionForm:dispinputCodeSelect16").value;
             var code17 = document.getElementById("productionForm:dispinputCodeSelect17").value;
             var code18 = document.getElementById("productionForm:dispinputCodeSelect18").value;
-            var code19 = document.getElementById("productionForm:dispinputCodeSelect19").value;
-            var code20 = document.getElementById("productionForm:dispinputCodeSelect20").value;
             //alert(qty12.value);
-            if(qty1 === null||qty2 === null||qty3 === null||qty4 === null||qty5 === null||qty6 === null||qty7 === null||qty8 === null||qty9 === null||qty10 === null||qty11 === null||qty12 === null||qty13 === null||qty14 === null||qty15 === null||qty16 === null||qty17 === null||qty18 === null||qty19 === null||qty20 === null){
+            if(qty1 === null||qty2 === null||qty3 === null||qty4 === null||qty5 === null||qty6 === null||qty7 === null||qty8 === null||qty9 === null||qty10 === null||qty11 === null||qty12 === null||qty13 === null||qty14 === null||qty15 === null||qty16 === null||qty17 === null||qty18 === null){
             qty1 = 0.0;
             qty2 = 0.0;
             qty3 = 0.0;
@@ -63,8 +59,6 @@
             qty16 = 0.0;
             qty17 = 0.0;
             qty18 = 0.0;
-            qty19 = 0.0;
-            qty20 = 0.0;
             }else {
                         document.getElementById("productionForm:qtyPerPail1").value = qty1;
                         document.getElementById("productionForm:qtyPerPail2").value = qty2;
@@ -83,9 +77,7 @@
                         document.getElementById("productionForm:qtyPerPail15").value = qty15;
                         document.getElementById("productionForm:qtyPerPail16").value = qty16;
                         document.getElementById("productionForm:qtyPerPail17").value = qty17;
-                        document.getElementById("productionForm:qtyPerPail18").value = qty18;
-                        document.getElementById("productionForm:qtyPerPail19").value = qty19;
-                        document.getElementById("productionForm:qtyPerPail20").value = qty20;                        
+                        document.getElementById("productionForm:qtyPerPail18").value = qty18;                        
             }
                         document.getElementById("productionForm:atmcurrent").value = productionName;
                         document.getElementById("productionForm:sgcurrent").value = sg;
@@ -108,8 +100,6 @@
                         document.getElementById("productionForm:inputCodeSelect16").value = code16;
                         document.getElementById("productionForm:inputCodeSelect17").value = code17;
                         document.getElementById("productionForm:inputCodeSelect18").value = code18;
-                        document.getElementById("productionForm:inputCodeSelect19").value = code19;
-                        document.getElementById("productionForm:inputCodeSelect20").value = code20;
             
             //alert('Production Initialised.. Click Ok to Proceed');
         }
@@ -134,11 +124,14 @@
             var qtyPail16 = document.getElementById("productionForm:qtyPerPail16").value;
             var qtyPail17 = document.getElementById("productionForm:qtyPerPail17").value;
             var qtyPail18 = document.getElementById("productionForm:qtyPerPail18").value;
-            var qtyPail19 = document.getElementById("productionForm:qtyPerPail19").value;
-            var qtyPail20 = document.getElementById("productionForm:qtyPerPail20").value;
             var add1 = document.getElementById("productionForm:additionalQty1").value;
             var add2 = document.getElementById("productionForm:additionalQty2").value;
             var add3 = document.getElementById("productionForm:additionalQty3").value;
+            var add4 = document.getElementById("productionForm:additionalQty4").value;
+            var add5 = document.getElementById("productionForm:additionalQty5").value;
+            var add6 = document.getElementById("productionForm:additionalQty6").value;
+            var add7 = document.getElementById("productionForm:additionalQty7").value;
+            var add8 = document.getElementById("productionForm:additionalQty8").value;
             var total1 = (parseInt(qty)*qtyPail1);
             var total2 = (parseInt(qty)*qtyPail2);
             var total3 = (parseInt(qty)*qtyPail3);
@@ -157,11 +150,14 @@
             var total16 = (parseInt(qty)*qtyPail16);
             var total17 = (parseInt(qty)*qtyPail17);
             var total18 = (parseInt(qty)*qtyPail18);
-            var total19 = (parseInt(qty)*qtyPail19);
-            var total20 = (parseInt(qty)*qtyPail20);
             var totalAdd1 = (parseInt(qty)*add1);
             var totalAdd2 = (parseInt(qty)*add2);
             var totalAdd3 = (parseInt(qty)*add3);
+            var totalAdd4 = (parseInt(qty)*add4);
+            var totalAdd5 = (parseInt(qty)*add5);
+            var totalAdd6 = (parseInt(qty)*add6);
+            var totalAdd7 = (parseInt(qty)*add7);
+            var totalAdd8 = (parseInt(qty)*add8);
             //alert(qty.value);
             document.getElementById("productionForm:productionQty1").value = total1;
             document.getElementById("productionForm:productionQty2").value = total2;
@@ -181,11 +177,14 @@
             document.getElementById("productionForm:productionQty16").value = total16;
             document.getElementById("productionForm:productionQty17").value = total17;
             document.getElementById("productionForm:productionQty18").value = total18;
-            document.getElementById("productionForm:productionQty19").value = total19;
-            document.getElementById("productionForm:productionQty20").value = total20;
             document.getElementById("productionForm:additionalProQty1").value = totalAdd1;
             document.getElementById("productionForm:additionalProQty2").value = totalAdd2;
             document.getElementById("productionForm:additionalProQty3").value = totalAdd3;
+            document.getElementById("productionForm:additionalProQty4").value = totalAdd4;
+            document.getElementById("productionForm:additionalProQty5").value = totalAdd5;
+            document.getElementById("productionForm:additionalProQty6").value = totalAdd6;
+            document.getElementById("productionForm:additionalProQty7").value = totalAdd7;
+            document.getElementById("productionForm:additionalProQty8").value = totalAdd8;
         }
       //function for the radio buttons in production page for pails, gallons, drums and auto calculation
       function reactToChangedRadio(){
@@ -211,12 +210,15 @@
           var sqty16 = $("#productionForm\\:productionQty16").val();
           var sqty17 = $("#productionForm\\:productionQty17").val();
           var sqty18 = $("#productionForm\\:productionQty18").val();
-          var sqty19 = $("#productionForm\\:productionQty19").val();
-          var sqty20 = $("#productionForm\\:productionQty20").val();
-          var sqty21 = $("#productionForm\\:additionalProQty1").val();
-          var sqty22 = $("#productionForm\\:additionalProQty2").val();
-          var sqty23 = $("#productionForm\\:additionalProQty3").val();
-          var sumQty = (+sqty1 + +sqty2 + +sqty3 + +sqty4 + +sqty5 + +sqty6 + +sqty7 + +sqty8 + +sqty9 + +sqty10 + +sqty11 + +sqty12 + +sqty13 + +sqty14 + +sqty15 + +sqty16 + +sqty17 + +sqty18 + +sqty19 + +sqty20 + +sqty21 + +sqty22 + +sqty23);
+          var sqty19 = $("#productionForm\\:additionalProQty1").val();
+          var sqty20 = $("#productionForm\\:additionalProQty2").val();
+          var sqty21 = $("#productionForm\\:additionalProQty3").val();
+          var sqty22 = $("#productionForm\\:additionalProQty4").val();
+          var sqty23 = $("#productionForm\\:additionalProQty5").val();
+          var sqty24 = $("#productionForm\\:additionalProQty6").val();
+          var sqty25 = $("#productionForm\\:additionalProQty7").val();
+          var sqty26 = $("#productionForm\\:additionalProQty8").val();
+          var sumQty = (+sqty1 + +sqty2 + +sqty3 + +sqty4 + +sqty5 + +sqty6 + +sqty7 + +sqty8 + +sqty9 + +sqty10 + +sqty11 + +sqty12 + +sqty13 + +sqty14 + +sqty15 + +sqty16 + +sqty17 + +sqty18 + +sqty19 + +sqty20 + +sqty21 + +sqty22 + +sqty23 + +sqty24 + +sqty25 + +sqty26);
           var holderValue = (sumQty/sg)/4;
           //myval = holderValue.toFixed(2);
           myval = Math.round(holderValue);
@@ -241,12 +243,15 @@
           var sqty16 = $("#productionForm\\:productionQty16").val();
           var sqty17 = $("#productionForm\\:productionQty17").val();
           var sqty18 = $("#productionForm\\:productionQty18").val();
-          var sqty19 = $("#productionForm\\:productionQty19").val();
-          var sqty20 = $("#productionForm\\:productionQty20").val();
-          var sqty21 = $("#productionForm\\:additionalProQty1").val();
-          var sqty22 = $("#productionForm\\:additionalProQty2").val();
-          var sqty23 = $("#productionForm\\:additionalProQty3").val();
-          var sumQty = (+sqty1 + +sqty2 + +sqty3 + +sqty4 + +sqty5 + +sqty6 + +sqty7 + +sqty8 + +sqty9 + +sqty10 + +sqty11 + +sqty12 + +sqty13 + +sqty14 + +sqty15 + +sqty16 + +sqty17 + +sqty18 + +sqty19 + +sqty20 + +sqty21 + +sqty22 + +sqty23);
+          var sqty19 = $("#productionForm\\:additionalProQty1").val();
+          var sqty20 = $("#productionForm\\:additionalProQty2").val();
+          var sqty21 = $("#productionForm\\:additionalProQty3").val();
+          var sqty22 = $("#productionForm\\:additionalProQty4").val();
+          var sqty23 = $("#productionForm\\:additionalProQty5").val();
+          var sqty24 = $("#productionForm\\:additionalProQty6").val();
+          var sqty25 = $("#productionForm\\:additionalProQty7").val();
+          var sqty26 = $("#productionForm\\:additionalProQty8").val();
+          var sumQty = (+sqty1 + +sqty2 + +sqty3 + +sqty4 + +sqty5 + +sqty6 + +sqty7 + +sqty8 + +sqty9 + +sqty10 + +sqty11 + +sqty12 + +sqty13 + +sqty14 + +sqty15 + +sqty16 + +sqty17 + +sqty18 + +sqty19 + +sqty20 + +sqty21 + +sqty22 + +sqty23 + +sqty24 + +sqty25 + +sqty26);
           var holderValue = (sumQty/sg)/20;
           //myval = holderValue.toFixed(2);
           myval = Math.round(holderValue);
@@ -271,12 +276,15 @@
           var sqty16 = $("#productionForm\\:productionQty16").val();
           var sqty17 = $("#productionForm\\:productionQty17").val();
           var sqty18 = $("#productionForm\\:productionQty18").val();
-          var sqty19 = $("#productionForm\\:productionQty19").val();
-          var sqty20 = $("#productionForm\\:productionQty20").val();
-          var sqty21 = $("#productionForm\\:additionalProQty1").val();
-          var sqty22 = $("#productionForm\\:additionalProQty2").val();
-          var sqty23 = $("#productionForm\\:additionalProQty3").val();
-          var sumQty = (+sqty1 + +sqty2 + +sqty3 + +sqty4 + +sqty5 + +sqty6 + +sqty7 + +sqty8 + +sqty9 + +sqty10 + +sqty11 + +sqty12 + +sqty13 + +sqty14 + +sqty15 + +sqty16 + +sqty17 + +sqty18 + +sqty19 + +sqty20 + +sqty21 + +sqty22 + +sqty23);
+          var sqty19 = $("#productionForm\\:additionalProQty1").val();
+          var sqty20 = $("#productionForm\\:additionalProQty2").val();
+          var sqty21 = $("#productionForm\\:additionalProQty3").val();
+          var sqty22 = $("#productionForm\\:additionalProQty4").val();
+          var sqty23 = $("#productionForm\\:additionalProQty5").val();
+          var sqty24 = $("#productionForm\\:additionalProQty6").val();
+          var sqty25 = $("#productionForm\\:additionalProQty7").val();
+          var sqty26 = $("#productionForm\\:additionalProQty8").val();
+          var sumQty = (+sqty1 + +sqty2 + +sqty3 + +sqty4 + +sqty5 + +sqty6 + +sqty7 + +sqty8 + +sqty9 + +sqty10 + +sqty11 + +sqty12 + +sqty13 + +sqty14 + +sqty15 + +sqty16 + +sqty17 + +sqty18 + +sqty19 + +sqty20 + +sqty21 + +sqty22 + +sqty23 + +sqty24 + +sqty25 + +sqty26);
           var holderValue = (sumQty/sg)/200;
           //myval = holderValue.toFixed(2);
           myval = Math.round(holderValue);
@@ -391,18 +399,6 @@
           if(sqty18 !== ""){
           var total18 = qty*sqty18;
           document.getElementById("productionForm:productionQty18").value = total18;
-          }
-          //19
-          var sqty19 = document.getElementById("productionForm:qtyPerPail19").value;
-          if(sqty19 !== ""){
-          var total19 = qty*sqty19;
-          document.getElementById("productionForm:productionQty19").value = total19;
-          }
-          //20
-          var sqty20 = document.getElementById("productionForm:qtyPerPail20").value;
-          if(sqty20 !== ""){
-          var total20 = qty*sqty20;
-          document.getElementById("productionForm:productionQty20").value = total20;
           }        
         }
         
@@ -543,40 +539,61 @@
             document.getElementById("productionForm:productionQty18").value = newVal18;
         }
             
-            var addQty19 = $("#productionForm\\:addition19").val();
-            var addTo19 = document.getElementById("productionForm:productionQty19").defaultValue;
-            if(addTo19 !== ""){             
-            var newVal19 = +addQty19 + +addTo19;
-            document.getElementById("productionForm:productionQty19").value = newVal19;
-        }
-            
-            var addQty20 = $("#productionForm\\:addition20").val();
-            var addTo20 = document.getElementById("productionForm:productionQty20").defaultValue;
-            if(addTo20 !== ""){             
-            var newVal20 = +addQty20 + +addTo20;
-            document.getElementById("productionForm:productionQty20").value = newVal20;
-        }
-            
-            var addQty21 = $("#productionForm\\:addition21").val();
+            var addQty21 = $("#productionForm\\:addition19").val();
             var addTo21 = document.getElementById("productionForm:additionalProQty1").defaultValue;
             if(addTo21 !== ""){             
             var newVal21 = +addQty21 + +addTo21;
             document.getElementById("productionForm:additionalProQty1").value = newVal21;
         }
             
-            var addQty22 = $("#productionForm\\:addition22").val();
+            var addQty22 = $("#productionForm\\:addition20").val();
             var addTo22 = document.getElementById("productionForm:additionalProQty2").defaultValue;
             if(addTo22 !== ""){             
             var newVal22 = +addQty22 + +addTo22;
             document.getElementById("productionForm:additionalProQty2").value = newVal22;
         }
             
-            var addQty23 = $("#productionForm\\:addition23").val();
+            var addQty23 = $("#productionForm\\:addition21").val();
             var addTo23 = document.getElementById("productionForm:additionalProQty3").defaultValue;
             if(addTo23 !== ""){            
             var newVal23 = +addQty23 + +addTo23;
             document.getElementById("productionForm:additionalProQty3").value = newVal23;
-              }
+        }
+        
+            var addQty24 = $("#productionForm\\:addition22").val();
+            var addTo24 = document.getElementById("productionForm:additionalProQty4").defaultValue;
+            if(addTo24 !== ""){            
+            var newVal24 = +addQty24 + +addTo24;
+            document.getElementById("productionForm:additionalProQty4").value = newVal24;
+        }
+        
+            var addQty25 = $("#productionForm\\:addition23").val();
+            var addTo25 = document.getElementById("productionForm:additionalProQty5").defaultValue;
+            if(addTo25 !== ""){            
+            var newVal25 = +addQty25 + +addTo25;
+            document.getElementById("productionForm:additionalProQty5").value = newVal25;
+        }
+        
+            var addQty26 = $("#productionForm\\:addition24").val();
+            var addTo26 = document.getElementById("productionForm:additionalProQty6").defaultValue;
+            if(addTo26 !== ""){            
+            var newVal26 = +addQty26 + +addTo26;
+            document.getElementById("productionForm:additionalProQty6").value = newVal26;
+        }
+        
+            var addQty27 = $("#productionForm\\:addition25").val();
+            var addTo27 = document.getElementById("productionForm:additionalProQty7").defaultValue;
+            if(addTo27 !== ""){            
+            var newVal27 = +addQty27 + +addTo27;
+            document.getElementById("productionForm:additionalProQty7").value = newVal27;
+        }
+        
+            var addQty28 = $("#productionForm\\:addition26").val();
+            var addTo28 = document.getElementById("productionForm:additionalProQty8").defaultValue;
+            if(addTo28 !== ""){            
+            var newVal28 = +addQty28 + +addTo28;
+            document.getElementById("productionForm:additionalProQty8").value = newVal28;
+        }        
         }        
         //function to update dropdown in updatestock page
         function updateStockValues(){

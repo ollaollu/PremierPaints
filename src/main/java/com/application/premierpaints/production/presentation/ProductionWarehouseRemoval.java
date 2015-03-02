@@ -183,11 +183,14 @@ public class ProductionWarehouseRemoval implements Serializable{
                     result.add(rs.getDouble("productionqty16"));
                     result.add(rs.getDouble("productionqty17"));
                     result.add(rs.getDouble("productionqty18"));
-                    result.add(rs.getDouble("productionqty19"));
-                    result.add(rs.getDouble("productionqty20"));
                     result.add(rs.getDouble("addprodqty1"));
                     result.add(rs.getDouble("addprodqty2"));
                     result.add(rs.getDouble("addprodqty3"));
+                    result.add(rs.getDouble("addprodqty4"));
+                    result.add(rs.getDouble("addprodqty5"));
+                    result.add(rs.getDouble("addprodqty6"));
+                    result.add(rs.getDouble("addprodqty7"));
+                    result.add(rs.getDouble("addprodqty8"));
                 }
             } catch (SQLException e) {
                 System.out.println(e.getMessage());

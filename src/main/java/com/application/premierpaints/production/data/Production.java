@@ -162,6 +162,56 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Production.findByContainertype", query = "SELECT p FROM Production p WHERE p.containertype = :containertype"),
     @NamedQuery(name = "Production.findByProductSG", query = "SELECT p FROM Production p WHERE p.productSG = :productSG")})
 public class Production implements Serializable {
+    @Size(max = 45)
+    @Column(name = "addcode4")
+    private String addcode4;
+    @Size(max = 45)
+    @Column(name = "addcode5")
+    private String addcode5;
+    @Size(max = 45)
+    @Column(name = "addcode6")
+    private String addcode6;
+    @Size(max = 45)
+    @Column(name = "addcode7")
+    private String addcode7;
+    @Size(max = 45)
+    @Column(name = "addcode8")
+    private String addcode8;
+    @Size(max = 45)
+    @Column(name = "addinstr4")
+    private String addinstr4;
+    @Size(max = 45)
+    @Column(name = "addinstr5")
+    private String addinstr5;
+    @Size(max = 45)
+    @Column(name = "addinstr6")
+    private String addinstr6;
+    @Size(max = 45)
+    @Column(name = "addinstr7")
+    private String addinstr7;
+    @Size(max = 45)
+    @Column(name = "addinstr8")
+    private String addinstr8;
+    @Column(name = "addqty4")
+    private Double addqty4;
+    @Column(name = "addqty5")
+    private Double addqty5;
+    @Column(name = "addqty6")
+    private Double addqty6;
+    @Column(name = "addqty7")
+    private Double addqty7;
+    @Column(name = "addqty8")
+    private Double addqty8;
+    @Column(name = "addprodqty4")
+    private Double addprodqty4;
+    @Column(name = "addprodqty5")
+    private Double addprodqty5;
+    @Column(name = "addprodqty6")
+    private Double addprodqty6;
+    @Column(name = "addprodqty7")
+    private Double addprodqty7;
+    @Column(name = "addprodqty8")
+    private Double addprodqty8;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -1559,6 +1609,166 @@ public class Production implements Serializable {
     @Override
     public String toString() {
         return "com.application.premierpaints.production.data.Production[ productionbatch=" + productionbatch + " ]";
+    }
+
+    public String getAddcode4() {
+        return addcode4;
+    }
+
+    public void setAddcode4(String addcode4) {
+        this.addcode4 = addcode4;
+    }
+
+    public String getAddcode5() {
+        return addcode5;
+    }
+
+    public void setAddcode5(String addcode5) {
+        this.addcode5 = addcode5;
+    }
+
+    public String getAddcode6() {
+        return addcode6;
+    }
+
+    public void setAddcode6(String addcode6) {
+        this.addcode6 = addcode6;
+    }
+
+    public String getAddcode7() {
+        return addcode7;
+    }
+
+    public void setAddcode7(String addcode7) {
+        this.addcode7 = addcode7;
+    }
+
+    public String getAddcode8() {
+        return addcode8;
+    }
+
+    public void setAddcode8(String addcode8) {
+        this.addcode8 = addcode8;
+    }
+
+    public String getAddinstr4() {
+        return addinstr4;
+    }
+
+    public void setAddinstr4(String addinstr4) {
+        this.addinstr4 = addinstr4;
+    }
+
+    public String getAddinstr5() {
+        return addinstr5;
+    }
+
+    public void setAddinstr5(String addinstr5) {
+        this.addinstr5 = addinstr5;
+    }
+
+    public String getAddinstr6() {
+        return addinstr6;
+    }
+
+    public void setAddinstr6(String addinstr6) {
+        this.addinstr6 = addinstr6;
+    }
+
+    public String getAddinstr7() {
+        return addinstr7;
+    }
+
+    public void setAddinstr7(String addinstr7) {
+        this.addinstr7 = addinstr7;
+    }
+
+    public String getAddinstr8() {
+        return addinstr8;
+    }
+
+    public void setAddinstr8(String addinstr8) {
+        this.addinstr8 = addinstr8;
+    }
+
+    public Double getAddqty4() {
+        return addqty4;
+    }
+
+    public void setAddqty4(Double addqty4) {
+        this.addqty4 = addqty4;
+    }
+
+    public Double getAddqty5() {
+        return addqty5;
+    }
+
+    public void setAddqty5(Double addqty5) {
+        this.addqty5 = addqty5;
+    }
+
+    public Double getAddqty6() {
+        return addqty6;
+    }
+
+    public void setAddqty6(Double addqty6) {
+        this.addqty6 = addqty6;
+    }
+
+    public Double getAddqty7() {
+        return addqty7;
+    }
+
+    public void setAddqty7(Double addqty7) {
+        this.addqty7 = addqty7;
+    }
+
+    public Double getAddqty8() {
+        return addqty8;
+    }
+
+    public void setAddqty8(Double addqty8) {
+        this.addqty8 = addqty8;
+    }
+
+    public Double getAddprodqty4() {
+        return addprodqty4;
+    }
+
+    public void setAddprodqty4(Double addprodqty4) {
+        this.addprodqty4 = addprodqty4;
+    }
+
+    public Double getAddprodqty5() {
+        return addprodqty5;
+    }
+
+    public void setAddprodqty5(Double addprodqty5) {
+        this.addprodqty5 = addprodqty5;
+    }
+
+    public Double getAddprodqty6() {
+        return addprodqty6;
+    }
+
+    public void setAddprodqty6(Double addprodqty6) {
+        this.addprodqty6 = addprodqty6;
+    }
+
+    public Double getAddprodqty7() {
+        return addprodqty7;
+    }
+
+    public void setAddprodqty7(Double addprodqty7) {
+        this.addprodqty7 = addprodqty7;
+    }
+
+    public Double getAddprodqty8() {
+        return addprodqty8;
+    }
+
+    public void setAddprodqty8(Double addprodqty8) {
+        this.addprodqty8 = addprodqty8;
     }
     
 }

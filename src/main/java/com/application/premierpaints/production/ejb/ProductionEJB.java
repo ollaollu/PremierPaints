@@ -104,11 +104,14 @@ public class ProductionEJB {
                 double oldDB16 = editList.get(15);
                 double oldDB17 = editList.get(16);
                 double oldDB18 = editList.get(17);
-                double oldDB19 = editList.get(18);
-                double oldDB20 = editList.get(19);
-                double oldDB21 = editList.get(20);
-                double oldDB22 = editList.get(21);
-                double oldDB23 = editList.get(22);
+                double oldDB21 = editList.get(18);
+                double oldDB22 = editList.get(19);
+                double oldDB23 = editList.get(20);
+                double oldDB24 = editList.get(21);
+                double oldDB25 = editList.get(22);
+                double oldDB26 = editList.get(23);
+                double oldDB27 = editList.get(24);
+                double oldDB28 = editList.get(25);
             
             //set date of edit
             Date dateEdited = new Date();
@@ -205,17 +208,7 @@ public class ProductionEJB {
         Double newQty18 = entity.getProductionqty18();
             double dbQty18 = pwr.getStockQty(inputCode18);
             int sBatch18 = pwr.getStockId(inputCode18);
-            double newDbQty18 = 0;
-        String inputCode19 = entity.getProductcode19();
-        Double newQty19 = entity.getProductionqty19();
-            double dbQty19 = pwr.getStockQty(inputCode19);
-            int sBatch19 = pwr.getStockId(inputCode19);
-            double newDbQty19 = 0;
-        String inputCode20 = entity.getProductcode20();
-        Double newQty20 = entity.getProductionqty20();
-            double dbQty20 = pwr.getStockQty(inputCode20);
-            int sBatch20 = pwr.getStockId(inputCode20);
-            double newDbQty20 = 0;            
+            double newDbQty18 = 0;            
         String inputCode21 = entity.getAddcode1();
         Double newQty21 = entity.getAddprodqty1();
             double dbQty21 = pwr.getStockQty(inputCode21);
@@ -231,6 +224,31 @@ public class ProductionEJB {
             double dbQty23 = pwr.getStockQty(inputCode23);
             int sBatch23 = pwr.getStockId(inputCode23);
             double newDbQty23 = 0;
+        String inputCode24 = entity.getAddcode4();
+        Double newQty24 = entity.getAddprodqty4();
+            double dbQty24 = pwr.getStockQty(inputCode24);
+            int sBatch24 = pwr.getStockId(inputCode24);
+            double newDbQty24 = 0;
+        String inputCode25 = entity.getAddcode5();
+        Double newQty25 = entity.getAddprodqty5();
+            double dbQty25 = pwr.getStockQty(inputCode25);
+            int sBatch25 = pwr.getStockId(inputCode25);
+            double newDbQty25 = 0;
+        String inputCode26 = entity.getAddcode6();
+        Double newQty26 = entity.getAddprodqty6();
+            double dbQty26 = pwr.getStockQty(inputCode26);
+            int sBatch26 = pwr.getStockId(inputCode26);
+            double newDbQty26 = 0;
+        String inputCode27 = entity.getAddcode7();
+        Double newQty27 = entity.getAddprodqty7();
+            double dbQty27 = pwr.getStockQty(inputCode27);
+            int sBatch27 = pwr.getStockId(inputCode27);
+            double newDbQty27 = 0;
+        String inputCode28 = entity.getAddcode8();
+        Double newQty28 = entity.getAddprodqty8();
+            double dbQty28 = pwr.getStockQty(inputCode28);
+            int sBatch28 = pwr.getStockId(inputCode28);
+            double newDbQty28 = 0;            
             
             //set quantity 1 in database
         if (newQty1!=null){ 
@@ -447,31 +465,8 @@ public class ProductionEJB {
                         update = false;
                 }
         }                
-                
-            //set quantity 19 in database
-        if (newQty19!=null){             
-                        double diff19 = newQty19 - oldDB19;            
-                if(dbQty19 >= diff19){
-                        newDbQty19 = dbQty19 - diff19;
-                        entity.setProductionqty19(newQty19);
-                    }else{
-                        JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode19 + " to update " +name+ " production, You have just " +dbQty19+ " left in warehouse");
-                        update = false;
-                }
-        }                
-                
-            //set quantity 20 in database
-        if (newQty20!=null){      
-                        double diff20 = newQty20 - oldDB20;            
-                if(dbQty20 >= diff20){
-                        newDbQty20 = dbQty20 - diff20;
-                        entity.setProductionqty20(newQty20);
-                    }else{
-                        JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode20 + " to update " +name+ " production, You have just " +dbQty20+ " left in warehouse");
-                        update = false;
-                } 
-        }                
-                
+                                
+      
             //set additional quantity 21 in database
         if (newQty21!=null){                 
                         double diff21 = newQty21 - oldDB21;            
@@ -507,6 +502,66 @@ public class ProductionEJB {
                         update = false;
                 }  
         }
+        
+            //set additional quantity 24 in database
+        if (newQty24!=null){             
+                        double diff24 = newQty24 - oldDB24;            
+                if(dbQty24 >= diff24){
+                        newDbQty24 = dbQty24 - diff24;
+                        entity.setAddprodqty4(newQty24);
+                    }else{
+                        JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode24 + " to update " +name+ " production, You have just " +dbQty24+ " left in warehouse");
+                        update = false;
+                }  
+        }
+        
+            //set additional quantity 25 in database
+        if (newQty25!=null){             
+                        double diff25 = newQty25 - oldDB25;            
+                if(dbQty25 >= diff25){
+                        newDbQty25 = dbQty25 - diff25;
+                        entity.setAddprodqty5(newQty25);
+                    }else{
+                        JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode25 + " to update " +name+ " production, You have just " +dbQty25+ " left in warehouse");
+                        update = false;
+                }  
+        }
+        
+            //set additional quantity 26 in database
+        if (newQty26!=null){             
+                        double diff26 = newQty26 - oldDB26;            
+                if(dbQty26 >= diff26){
+                        newDbQty26 = dbQty26 - diff26;
+                        entity.setAddprodqty6(newQty26);
+                    }else{
+                        JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode26 + " to update " +name+ " production, You have just " +dbQty26+ " left in warehouse");
+                        update = false;
+                }  
+        }
+        
+            //set additional quantity 27 in database
+        if (newQty27!=null){             
+                        double diff27 = newQty27 - oldDB27;            
+                if(dbQty27 >= diff27){
+                        newDbQty27 = dbQty27 - diff27;
+                        entity.setAddprodqty7(newQty27);
+                    }else{
+                        JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode27 + " to update " +name+ " production, You have just " +dbQty27+ " left in warehouse");
+                        update = false;
+                }  
+        }
+        
+            //set additional quantity 28 in database
+        if (newQty28!=null){             
+                        double diff28 = newQty28 - oldDB28;            
+                if(dbQty28 >= diff28){
+                        newDbQty28 = dbQty28 - diff28;
+                        entity.setAddprodqty8(newQty28);
+                    }else{
+                        JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode28 + " to update " +name+ " production, You have just " +dbQty28+ " left in warehouse");
+                        update = false;
+                }  
+        }        
         //Grandtotal for production
         //using actualqty1 field in database as grandtotal field
         Double cost1 = null;
@@ -527,11 +582,14 @@ public class ProductionEJB {
         Double cost16 = null;
         Double cost17 = null;
         Double cost18 = null;
-        Double cost19 = null;
-        Double cost20 = null;
         Double cost21 = null;
         Double cost22 = null;
         Double cost23 = null;
+        Double cost24 = null;
+        Double cost25 = null;
+        Double cost26 = null;
+        Double cost27 = null;
+        Double cost28 = null;
             Double codeCost1 = pwr.getInputCodeCost(inputCode1);
             if(codeCost1!=null){
                 if(newQty1 == null){
@@ -659,20 +717,6 @@ public class ProductionEJB {
                 }                
                 cost18 = newQty18 * codeCost18;
             }
-            Double codeCost19 = pwr.getInputCodeCost(inputCode19);
-            if(codeCost19!=null){
-                if(newQty19 == null){
-                    newQty19 = 0.0;
-                }                
-                cost19 = newQty19 * codeCost19;
-            }
-            Double codeCost20 = pwr.getInputCodeCost(inputCode20);
-            if(codeCost20!=null){
-                if(newQty20 == null){
-                    newQty20 = 0.0;
-                }                
-                cost20 = newQty20 * codeCost20;
-            }
             Double codeCost21 = pwr.getInputCodeCost(inputCode21);
             if(codeCost21!=null){
                 if(newQty21 == null){
@@ -694,6 +738,41 @@ public class ProductionEJB {
                 }                
                 cost23 = newQty23 * codeCost23;
             }
+            Double codeCost24 = pwr.getInputCodeCost(inputCode24);
+            if(codeCost24!=null){
+                if(newQty24 == null){
+                    newQty24 = 0.0;
+                }                
+                cost24 = newQty24 * codeCost24;
+            }
+            Double codeCost25 = pwr.getInputCodeCost(inputCode25);
+            if(codeCost25!=null){
+                if(newQty25 == null){
+                    newQty25 = 0.0;
+                }                
+                cost25 = newQty25 * codeCost25;
+            }
+            Double codeCost26 = pwr.getInputCodeCost(inputCode26);
+            if(codeCost26!=null){
+                if(newQty26 == null){
+                    newQty26 = 0.0;
+                }                
+                cost26 = newQty26 * codeCost26;
+            }
+            Double codeCost27 = pwr.getInputCodeCost(inputCode27);
+            if(codeCost27!=null){
+                if(newQty27 == null){
+                    newQty27 = 0.0;
+                }                
+                cost27 = newQty27 * codeCost27;
+            }
+            Double codeCost28 = pwr.getInputCodeCost(inputCode28);
+            if(codeCost28!=null){
+                if(newQty28 == null){
+                    newQty28 = 0.0;
+                }                
+                cost28 = newQty28 * codeCost28;
+            }            
         /**
          * ActualQty1 = overallTotal of raw material cost and packaging cost
          * ActualQty2 = Price of packaging entered from production in dropdown
@@ -704,7 +783,7 @@ public class ProductionEJB {
          * ActualQty7 = packageCost which is actual quantity multiplied by price of packaging
          */
         //1    
-        Double grandTotal = cost1 + cost2 + cost3 + cost4 + cost5 + cost6 + cost7 + cost8 + cost9 + cost10 + cost11 + cost12 + cost13 + cost14 + cost15 + cost16 + cost17 + cost18 + cost19 + cost20 + cost21 + cost22 + cost23;
+        Double grandTotal = cost1 + cost2 + cost3 + cost4 + cost5 + cost6 + cost7 + cost8 + cost9 + cost10 + cost11 + cost12 + cost13 + cost14 + cost15 + cost16 + cost17 + cost18 + cost21 + cost22 + cost23 + cost24 + cost25 + cost26 + cost27 + cost28;
         System.out.println("GrandTotal: " + grandTotal);        
         entity.setActualqty6(grandTotal);
           //double grandTotal = cost1 + cost2;
@@ -798,12 +877,6 @@ public class ProductionEJB {
                     if(!inputCode18.isEmpty()){
                         pwr.updateWarehouse(newDbQty18, sBatch18);
                     }
-                    if(!inputCode19.isEmpty()){
-                        pwr.updateWarehouse(newDbQty19, sBatch19);
-                    }
-                    if(!inputCode20.isEmpty()){
-                        pwr.updateWarehouse(newDbQty20, sBatch20);
-                    }
                     if(inputCode21!=null){
                         pwr.updateWarehouse(newDbQty21, sBatch21);
                     }
@@ -813,6 +886,21 @@ public class ProductionEJB {
                     if(inputCode23!=null){
                         pwr.updateWarehouse(newDbQty23, sBatch23);
                     }
+                    if(inputCode24!=null){
+                        pwr.updateWarehouse(newDbQty24, sBatch24);
+                    } 
+                    if(inputCode25!=null){
+                        pwr.updateWarehouse(newDbQty25, sBatch25);
+                    }
+                    if(inputCode26!=null){
+                        pwr.updateWarehouse(newDbQty26, sBatch26);
+                    }
+                    if(inputCode27!=null){
+                        pwr.updateWarehouse(newDbQty27, sBatch27);
+                    }
+                    if(inputCode28!=null){
+                        pwr.updateWarehouse(newDbQty28, sBatch28);
+                    }                    
                     entityManager.merge(entity);
                     JsfUtil.addSuccessMessage("Production updated successfully");
                 }
@@ -914,17 +1002,7 @@ public class ProductionEJB {
         Double newQty18 = entity.getProductionqty18();
             double dbQty18 = pwr.getStockQty(inputCode18);
             int sBatch18 = pwr.getStockId(inputCode18);
-            double newDbQty18 = 0;
-        String inputCode19 = entity.getProductcode19();
-        Double newQty19 = entity.getProductionqty19();
-            double dbQty19 = pwr.getStockQty(inputCode19);
-            int sBatch19 = pwr.getStockId(inputCode19);
-            double newDbQty19 = 0;
-        String inputCode20 = entity.getProductcode20();
-        Double newQty20 = entity.getProductionqty20();
-            double dbQty20 = pwr.getStockQty(inputCode20);
-            int sBatch20 = pwr.getStockId(inputCode20);
-            double newDbQty20 = 0;            
+            double newDbQty18 = 0;           
         String inputCode21 = entity.getAddcode1();
         Double newQty21 = entity.getAddprodqty1();
             double dbQty21 = pwr.getStockQty(inputCode21);
@@ -939,7 +1017,32 @@ public class ProductionEJB {
         Double newQty23 = entity.getAddprodqty3();
             double dbQty23 = pwr.getStockQty(inputCode23);
             int sBatch23 = pwr.getStockId(inputCode23);
-            double newDbQty23 = 0;                                
+            double newDbQty23 = 0;
+        String inputCode24 = entity.getAddcode4();
+        Double newQty24 = entity.getAddprodqty4();
+            double dbQty24 = pwr.getStockQty(inputCode24);
+            int sBatch24 = pwr.getStockId(inputCode24);
+            double newDbQty24 = 0;
+        String inputCode25 = entity.getAddcode5();
+        Double newQty25 = entity.getAddprodqty5();
+            double dbQty25 = pwr.getStockQty(inputCode25);
+            int sBatch25 = pwr.getStockId(inputCode25);
+            double newDbQty25 = 0;
+        String inputCode26 = entity.getAddcode6();
+        Double newQty26 = entity.getAddprodqty6();
+            double dbQty26 = pwr.getStockQty(inputCode26);
+            int sBatch26 = pwr.getStockId(inputCode26);
+            double newDbQty26 = 0;
+        String inputCode27 = entity.getAddcode7();
+        Double newQty27 = entity.getAddprodqty7();
+            double dbQty27 = pwr.getStockQty(inputCode27);
+            int sBatch27 = pwr.getStockId(inputCode27);
+            double newDbQty27 = 0;           
+        String inputCode28 = entity.getAddcode8();
+        Double newQty28 = entity.getAddprodqty8();
+            double dbQty28 = pwr.getStockQty(inputCode28);
+            int sBatch28 = pwr.getStockId(inputCode28);
+            double newDbQty28 = 0;            
         
         //set date of production
         Date dateCreated = new Date();
@@ -1146,28 +1249,6 @@ public class ProductionEJB {
                 }           
         }
         
-        //set quantity 19 in database
-        if (newQty19!=null){
-                if(dbQty19 >= newQty19){
-                    newDbQty19 = dbQty19 - newQty19;
-                    entity.setProductionqty19(newQty19);
-                }else{
-                    JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode19 + " to make " +name+ " production, You have just " +dbQty19+ " left in warehouse");
-                    persist = false;
-                }           
-        }        
-        
-        //set quantity20 in database
-        if (newQty20!=null){
-                if(dbQty20 >= newQty20){
-                    newDbQty20 = dbQty20 - newQty20;
-                    entity.setProductionqty20(newQty20);
-                }else{
-                    JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode20 + " to make " +name+ " production, You have just " +dbQty20+ " left in warehouse");
-                    persist = false;
-                }           
-        }
-        
         //set additional quantity21 in database
         if (newQty21!=null){
                 if(dbQty21 >= newQty21){
@@ -1201,6 +1282,61 @@ public class ProductionEJB {
                 }           
         }
         
+        //set additional quantity24 in database
+        if (newQty24!=null){
+                if(dbQty24 >= newQty24){
+                    newDbQty24 = dbQty24 - newQty24;
+                    entity.setAddprodqty4(newQty24);
+                }else{
+                    JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode24 + " to make " +name+ " production, You have just " +dbQty24+ " left in warehouse");
+                    persist = false;
+                }           
+        }
+        
+        //set additional quantity25 in database
+        if (newQty25!=null){
+                if(dbQty25 >= newQty25){
+                    newDbQty25 = dbQty25 - newQty25;
+                    entity.setAddprodqty5(newQty25);
+                }else{
+                    JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode25 + " to make " +name+ " production, You have just " +dbQty25+ " left in warehouse");
+                    persist = false;
+                }           
+        }
+        
+        //set additional quantity26 in database
+        if (newQty26!=null){
+                if(dbQty26 >= newQty26){
+                    newDbQty26 = dbQty26 - newQty26;
+                    entity.setAddprodqty6(newQty26);
+                }else{
+                    JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode26 + " to make " +name+ " production, You have just " +dbQty26+ " left in warehouse");
+                    persist = false;
+                }           
+        }
+        
+        //set additional quantity27 in database
+        if (newQty27!=null){
+                if(dbQty27 >= newQty27){
+                    newDbQty27 = dbQty27 - newQty27;
+                    entity.setAddprodqty7(newQty27);
+                }else{
+                    JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode27 + " to make " +name+ " production, You have just " +dbQty27+ " left in warehouse");
+                    persist = false;
+                }           
+        }
+        
+        //set additional quantity28 in database
+        if (newQty28!=null){
+                if(dbQty28 >= newQty28){
+                    newDbQty28 = dbQty28 - newQty28;
+                    entity.setAddprodqty8(newQty28);
+                }else{
+                    JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode28 + " to make " +name+ " production, You have just " +dbQty28+ " left in warehouse");
+                    persist = false;
+                }           
+        }        
+        
         //Grandtotal for production
         //using actualqty1 field in database as grandtotal field
         Double cost1 = null;
@@ -1221,11 +1357,14 @@ public class ProductionEJB {
         Double cost16 = null;
         Double cost17 = null;
         Double cost18 = null;
-        Double cost19 = null;
-        Double cost20 = null;
         Double cost21 = null;
         Double cost22 = null;
         Double cost23 = null;
+        Double cost24 = null;
+        Double cost25 = null;
+        Double cost26 = null;
+        Double cost27 = null;
+        Double cost28 = null;
             Double codeCost1 = pwr.getInputCodeCost(inputCode1);
             if(codeCost1!=null){
                 if(newQty1 == null){
@@ -1353,20 +1492,6 @@ public class ProductionEJB {
                 }                
                 cost18 = newQty18 * codeCost18;
             }
-            Double codeCost19 = pwr.getInputCodeCost(inputCode19);
-            if(codeCost19!=null){
-                if(newQty19 == null){
-                    newQty19 = 0.0;
-                }                
-                cost19 = newQty19 * codeCost19;
-            }
-            Double codeCost20 = pwr.getInputCodeCost(inputCode20);
-            if(codeCost20!=null){
-                if(newQty20 == null){
-                    newQty20 = 0.0;
-                }                
-                cost20 = newQty20 * codeCost20;
-            }
             Double codeCost21 = pwr.getInputCodeCost(inputCode21);
             if(codeCost21!=null){
                 if(newQty21 == null){
@@ -1388,6 +1513,41 @@ public class ProductionEJB {
                 }                
                 cost23 = newQty23 * codeCost23;
             }
+            Double codeCost24 = pwr.getInputCodeCost(inputCode24);
+            if(codeCost24!=null){
+                if(newQty24 == null){
+                    newQty24 = 0.0;
+                }                
+                cost24 = newQty24 * codeCost24;
+            }
+            Double codeCost25 = pwr.getInputCodeCost(inputCode25);
+            if(codeCost25!=null){
+                if(newQty25 == null){
+                    newQty25 = 0.0;
+                }                
+                cost25 = newQty25 * codeCost25;
+            }
+            Double codeCost26 = pwr.getInputCodeCost(inputCode26);
+            if(codeCost26!=null){
+                if(newQty26 == null){
+                    newQty26 = 0.0;
+                }                
+                cost26 = newQty26 * codeCost26;
+            }
+            Double codeCost27 = pwr.getInputCodeCost(inputCode27);
+            if(codeCost27!=null){
+                if(newQty27 == null){
+                    newQty27 = 0.0;
+                }                
+                cost27 = newQty27 * codeCost27;
+            }
+            Double codeCost28 = pwr.getInputCodeCost(inputCode28);
+            if(codeCost28!=null){
+                if(newQty28 == null){
+                    newQty28 = 0.0;
+                }                
+                cost28 = newQty28 * codeCost28;
+            }            
         /**
          * ActualQty1 = overallTotal of raw material cost and packaging cost
          * ActualQty2 = Price of packaging entered from production in dropdown
@@ -1398,7 +1558,7 @@ public class ProductionEJB {
          * ActualQty7 = packageCost which is actual quantity multiplied by price of packaging
          */
         //1    
-        Double grandTotal = cost1 + cost2 + cost3 + cost4 + cost5 + cost6 + cost7 + cost8 + cost9 + cost10 + cost11 + cost12 + cost13 + cost14 + cost15 + cost16 + cost17 + cost18 + cost19 + cost20 + cost21 + cost22 + cost23;
+        Double grandTotal = cost1 + cost2 + cost3 + cost4 + cost5 + cost6 + cost7 + cost8 + cost9 + cost10 + cost11 + cost12 + cost13 + cost14 + cost15 + cost16 + cost17 + cost18 + cost21 + cost22 + cost23 + cost24 + cost25 + cost26 + cost27 + cost28;
         System.out.println("GrandTotal: " + grandTotal);        
         entity.setActualqty6(grandTotal);
           //double grandTotal = cost1 + cost2;
@@ -1511,14 +1671,6 @@ public class ProductionEJB {
                         pwr.updateWarehouse(newDbQty18, sBatch18);
                         pwr.populateWarehouseIssue(inputCode18, name, newQty18, createdBy, dateCreated, dbQty18, newDbQty18);
                     }
-                    if(!inputCode19.isEmpty()){
-                        pwr.updateWarehouse(newDbQty19, sBatch19);
-                        pwr.populateWarehouseIssue(inputCode19, name, newQty19, createdBy, dateCreated, dbQty19, newDbQty19);
-                    }
-                    if(!inputCode20.isEmpty()){
-                        pwr.updateWarehouse(newDbQty20, sBatch20);
-                        pwr.populateWarehouseIssue(inputCode20, name, newQty20, createdBy, dateCreated, dbQty20, newDbQty20);
-                    }
                     if(inputCode21!=null){
                         pwr.updateWarehouse(newDbQty21, sBatch21);
                         pwr.populateWarehouseIssue(inputCode21, name, newQty21, createdBy, dateCreated, dbQty21, newDbQty21);
@@ -1531,6 +1683,26 @@ public class ProductionEJB {
                         pwr.updateWarehouse(newDbQty23, sBatch23);
                         pwr.populateWarehouseIssue(inputCode23, name, newQty23, createdBy, dateCreated, dbQty23, newDbQty23);
                     }
+                    if(inputCode24!=null){
+                        pwr.updateWarehouse(newDbQty24, sBatch24);
+                        pwr.populateWarehouseIssue(inputCode24, name, newQty24, createdBy, dateCreated, dbQty24, newDbQty24);
+                    }
+                    if(inputCode25!=null){
+                        pwr.updateWarehouse(newDbQty25, sBatch25);
+                        pwr.populateWarehouseIssue(inputCode25, name, newQty25, createdBy, dateCreated, dbQty25, newDbQty25);
+                    }
+                    if(inputCode26!=null){
+                        pwr.updateWarehouse(newDbQty26, sBatch26);
+                        pwr.populateWarehouseIssue(inputCode26, name, newQty26, createdBy, dateCreated, dbQty26, newDbQty26);
+                    }
+                    if(inputCode27!=null){
+                        pwr.updateWarehouse(newDbQty27, sBatch27);
+                        pwr.populateWarehouseIssue(inputCode27, name, newQty27, createdBy, dateCreated, dbQty27, newDbQty27);
+                    }
+                    if(inputCode28!=null){
+                        pwr.updateWarehouse(newDbQty28, sBatch28);
+                        pwr.populateWarehouseIssue(inputCode28, name, newQty28, createdBy, dateCreated, dbQty28, newDbQty28);
+                    }                    
                     entityManager.persist(entity);
                     JsfUtil.addSuccessMessage("Production created successfully");
                 }
