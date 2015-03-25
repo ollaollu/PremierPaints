@@ -254,7 +254,8 @@ public class ProductionEJB {
         if (newQty1!=null){ 
         		double diff1 = newQty1 - oldDB1;
                 if(dbQty1 >= diff1){
-                        newDbQty1 = dbQty1 - diff1;
+                        //newDbQty1 = dbQty1 - diff1;
+                        newDbQty1 = Math.round((dbQty1 - diff1)*1000)/1000.00d;
                         entity.setProductionqty1(newQty1);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode1 + " to update " +name+ " production, You have just " +dbQty1+ " left in warehouse");
@@ -266,7 +267,8 @@ public class ProductionEJB {
         if (newQty2!=null){
                         double diff2 = newQty2 - oldDB2;
                 if(dbQty2 >= diff2){
-                        newDbQty2 = dbQty2 - diff2;
+                        //newDbQty2 = dbQty2 - diff2;
+                        newDbQty2 = Math.round((dbQty2 - diff2)*1000)/1000.00d;
                         entity.setProductionqty1(newQty2);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode2 + " to update " +name+ " production, You have just " +dbQty2+ " left in warehouse");
@@ -278,7 +280,8 @@ public class ProductionEJB {
         if (newQty3!=null){ 
                         double diff3 = newQty3 - oldDB3;            
                 if(dbQty3 >= diff3){
-                        newDbQty3 = dbQty3 - diff3;
+                        //newDbQty3 = dbQty3 - diff3;
+                        newDbQty3 = Math.round((dbQty3 - diff3)*1000)/1000.00d;
                         entity.setProductionqty3(newQty3);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode3 + " to update " +name+ " production, You have just " +dbQty3+ " left in warehouse");
@@ -290,7 +293,8 @@ public class ProductionEJB {
         if (newQty4!=null){ 
                         double diff4 = newQty4 - oldDB4;
                 if(dbQty4 >= diff4){
-                        newDbQty4 = dbQty4 - diff4;
+                        //newDbQty4 = dbQty4 - diff4;
+                        newDbQty4 = Math.round((dbQty4 - diff4)*1000)/1000.00d;
                         entity.setProductionqty4(newQty4);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode4 + " to update " +name+ " production, You have just " +dbQty4+ " left in warehouse");
@@ -302,7 +306,8 @@ public class ProductionEJB {
         if (newQty5!=null){     
                         double diff5 = newQty5 - oldDB5;            
                 if(dbQty5 >= diff5){
-                        newDbQty5 = dbQty5 - diff5;
+                        //newDbQty5 = dbQty5 - diff5;
+                        newDbQty5 = Math.round((dbQty5 - diff5)*1000)/1000.00d;
                         entity.setProductionqty5(newQty5);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode5 + " to update " +name+ " production, You have just " +dbQty5+ " left in warehouse");
@@ -314,7 +319,8 @@ public class ProductionEJB {
         if (newQty6!=null){
                         double diff6 = newQty6 - oldDB6;            
                 if(dbQty6 >= diff6){
-                        newDbQty6 = dbQty6 - diff6;
+                        //newDbQty6 = dbQty6 - diff6;
+                        newDbQty6 = Math.round((dbQty6 - diff6)*1000)/1000.00d;
                         entity.setProductionqty6(newQty6);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode6 + " to update " +name+ " production, You have just " +dbQty6+ " left in warehouse");
@@ -326,7 +332,8 @@ public class ProductionEJB {
         if (newQty7!=null){  
                         double diff7 = newQty7 - oldDB7;            
                 if(dbQty7 >= diff7){
-                        newDbQty7 = dbQty7 - diff7;
+                        //newDbQty7 = dbQty7 - diff7;
+                        newDbQty7 = Math.round((dbQty7 - diff7)*1000)/1000.00d;
                         entity.setProductionqty7(newQty7);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode7 + " to update " +name+ " production, You have just " +dbQty7+ " left in warehouse");
@@ -338,7 +345,8 @@ public class ProductionEJB {
         if (newQty8!=null){       
                         double diff8 = newQty8 - oldDB8;            
                 if(dbQty8 >= diff8){
-                        newDbQty8 = dbQty8 - diff8;
+                        //newDbQty8 = dbQty8 - diff8;
+                        newDbQty8 = Math.round((dbQty8 - diff8)*1000)/1000.00d;
                         entity.setProductionqty8(newQty8);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode8 + " to update " +name+ " production, You have just " +dbQty8+ " left in warehouse");
@@ -350,7 +358,8 @@ public class ProductionEJB {
         if (newQty9!=null){  
                         double diff9 = newQty9 - oldDB9;            
                 if(dbQty9 >= diff9){
-                        newDbQty9 = dbQty9 - diff9;
+                        //newDbQty9 = dbQty9 - diff9;
+                        newDbQty9 = Math.round((dbQty9 - diff9)*1000)/1000.00d;
                         entity.setProductionqty9(newQty9);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode9 + " to update " +name+ " production, You have just " +dbQty9+ " left in warehouse");
@@ -362,7 +371,8 @@ public class ProductionEJB {
         if (newQty10!=null){          
                         double diff10 = newQty10 - oldDB10;            
                 if(dbQty10 >= diff10){
-                        newDbQty10 = dbQty10 - diff10;
+                        //newDbQty10 = dbQty10 - diff10;
+                        newDbQty10 = Math.round((dbQty10 - diff10)*1000)/1000.00d;
                         entity.setProductionqty10(newQty10);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode10 + " to update " +name+ " production, You have just " +dbQty10+ " left in warehouse");
@@ -374,7 +384,8 @@ public class ProductionEJB {
         if (newQty11!=null){                 
                         double diff11 = newQty11 - oldDB11;            
                 if(dbQty11 >= diff11){
-                        newDbQty11 = dbQty11 - diff11;
+                        //newDbQty11 = dbQty11 - diff11;
+                        newDbQty11 = Math.round((dbQty11 - diff11)*1000)/1000.00d;
                         entity.setProductionqty11(newQty11);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode11 + " to update " +name+ " production, You have just " +dbQty11+ " left in warehouse");
@@ -386,7 +397,8 @@ public class ProductionEJB {
         if (newQty12!=null){                 
                         double diff12 = newQty12 - oldDB12;            
                 if(dbQty12 >= diff12){
-                        newDbQty12 = dbQty12 - diff12;
+                        //newDbQty12 = dbQty12 - diff12;
+                        newDbQty12 = Math.round((dbQty12 - diff12)*1000)/1000.00d;
                         entity.setProductionqty12(newQty12);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode12 + " to update " +name+ " production, You have just " +dbQty12+ " left in warehouse");
@@ -398,7 +410,8 @@ public class ProductionEJB {
         if (newQty13!=null){     
                         double diff13 = newQty13 - oldDB13;            
                 if(dbQty13 >= diff13){
-                        newDbQty13 = dbQty13 - diff13;
+                        //newDbQty13 = dbQty13 - diff13;
+                        newDbQty13 = Math.round((dbQty13 - diff13)*1000)/1000.00d;
                         entity.setProductionqty1(newQty13);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode13 + " to update " +name+ " production, You have just " +dbQty13+ " left in warehouse");
@@ -410,7 +423,8 @@ public class ProductionEJB {
         if (newQty14!=null){          
                         double diff14 = newQty14 - oldDB14;            
                 if(dbQty14 >= diff14){
-                        newDbQty14 = dbQty14 - diff14;
+                        //newDbQty14 = dbQty14 - diff14;
+                        newDbQty14 = Math.round((dbQty14 - diff14)*1000)/1000.00d;
                         entity.setProductionqty14(newQty14);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode14 + " to update " +name+ " production, You have just " +dbQty14+ " left in warehouse");
@@ -422,7 +436,8 @@ public class ProductionEJB {
         if (newQty15!=null){                 
                         double diff15 = newQty15 - oldDB15;            
                 if(dbQty15 >= diff15){
-                        newDbQty15 = dbQty15 - diff15;
+                        //newDbQty15 = dbQty15 - diff15;
+                        newDbQty15 = Math.round((dbQty15 - diff15)*1000)/1000.00d;
                         entity.setProductionqty15(newQty15);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode15 + " to update " +name+ " production, You have just " +dbQty15+ " left in warehouse");
@@ -434,7 +449,8 @@ public class ProductionEJB {
         if (newQty16!=null){                 
                         double diff16 = newQty16 - oldDB16;            
                 if(dbQty16 >= diff16){
-                        newDbQty16 = dbQty16 - diff16;
+                        //newDbQty16 = dbQty16 - diff16;
+                        newDbQty16 = Math.round((dbQty16 - diff16)*1000)/1000.00d;
                         entity.setProductionqty16(newQty16);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode16 + " to update " +name+ " production, You have just " +dbQty16+ " left in warehouse");
@@ -446,7 +462,8 @@ public class ProductionEJB {
         if (newQty17!=null){                 
                         double diff17 = newQty17 - oldDB17;            
                 if(dbQty17 >= diff17){
-                        newDbQty17 = dbQty17 - diff17;
+                        //newDbQty17 = dbQty17 - diff17;
+                        newDbQty17 = Math.round((dbQty17 - diff17)*1000)/1000.00d;
                         entity.setProductionqty17(newQty17);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode17 + " to update " +name+ " production, You have just " +dbQty17+ " left in warehouse");
@@ -458,7 +475,8 @@ public class ProductionEJB {
         if (newQty18!=null){    
                         double diff18 = newQty18 - oldDB18;            
                 if(dbQty18 >= diff18){
-                        newDbQty18 = dbQty18 - diff18;
+                        //newDbQty18 = dbQty18 - diff18;
+                        newDbQty18 = Math.round((dbQty18 - diff18)*1000)/1000.00d;
                         entity.setProductionqty18(newQty18);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode18 + " to update " +name+ " production, You have just " +dbQty18+ " left in warehouse");
@@ -471,7 +489,8 @@ public class ProductionEJB {
         if (newQty21!=null){                 
                         double diff21 = newQty21 - oldDB21;            
                 if(dbQty21 >= diff21){
-                        newDbQty21 = dbQty21 - diff21;
+                        //newDbQty21 = dbQty21 - diff21;
+                        newDbQty21 = Math.round((dbQty21 - diff21)*1000)/1000.00d;
                         entity.setAddprodqty1(newQty21);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode21 + " to update " +name+ " production, You have just " +dbQty21+ " left in warehouse");
@@ -483,7 +502,8 @@ public class ProductionEJB {
         if (newQty22!=null){                
                         double diff22 = newQty22 - oldDB22;            
                 if(dbQty22 >= diff22){
-                        newDbQty22 = dbQty22 - diff22;
+                        //newDbQty22 = dbQty22 - diff22;
+                        newDbQty22 = Math.round((dbQty22 - diff22)*1000)/1000.00d;
                         entity.setAddprodqty2(newQty22);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode22 + " to update " +name+ " production, You have just " +dbQty22+ " left in warehouse");
@@ -495,7 +515,8 @@ public class ProductionEJB {
         if (newQty23!=null){             
                         double diff23 = newQty23 - oldDB23;            
                 if(dbQty23 >= diff23){
-                        newDbQty23 = dbQty23 - diff23;
+                        //newDbQty23 = dbQty23 - diff23;
+                        newDbQty23 = Math.round((dbQty23 - diff23)*1000)/1000.00d;
                         entity.setAddprodqty3(newQty23);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode23 + " to update " +name+ " production, You have just " +dbQty23+ " left in warehouse");
@@ -507,7 +528,8 @@ public class ProductionEJB {
         if (newQty24!=null){             
                         double diff24 = newQty24 - oldDB24;            
                 if(dbQty24 >= diff24){
-                        newDbQty24 = dbQty24 - diff24;
+                        //newDbQty24 = dbQty24 - diff24;
+                        newDbQty24 = Math.round((dbQty24 - diff24)*1000)/1000.00d;
                         entity.setAddprodqty4(newQty24);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode24 + " to update " +name+ " production, You have just " +dbQty24+ " left in warehouse");
@@ -519,7 +541,8 @@ public class ProductionEJB {
         if (newQty25!=null){             
                         double diff25 = newQty25 - oldDB25;            
                 if(dbQty25 >= diff25){
-                        newDbQty25 = dbQty25 - diff25;
+                        //newDbQty25 = dbQty25 - diff25;
+                        newDbQty25 = Math.round((dbQty25 - diff25)*1000)/1000.00d;
                         entity.setAddprodqty5(newQty25);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode25 + " to update " +name+ " production, You have just " +dbQty25+ " left in warehouse");
@@ -531,7 +554,8 @@ public class ProductionEJB {
         if (newQty26!=null){             
                         double diff26 = newQty26 - oldDB26;            
                 if(dbQty26 >= diff26){
-                        newDbQty26 = dbQty26 - diff26;
+                        //newDbQty26 = dbQty26 - diff26;
+                        newDbQty26 = Math.round((dbQty26 - diff26)*1000)/1000.00d;
                         entity.setAddprodqty6(newQty26);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode26 + " to update " +name+ " production, You have just " +dbQty26+ " left in warehouse");
@@ -543,7 +567,8 @@ public class ProductionEJB {
         if (newQty27!=null){             
                         double diff27 = newQty27 - oldDB27;            
                 if(dbQty27 >= diff27){
-                        newDbQty27 = dbQty27 - diff27;
+                        //newDbQty27 = dbQty27 - diff27;
+                        newDbQty27 = Math.round((dbQty27 - diff27)*1000)/1000.00d;
                         entity.setAddprodqty7(newQty27);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode27 + " to update " +name+ " production, You have just " +dbQty27+ " left in warehouse");
@@ -555,7 +580,8 @@ public class ProductionEJB {
         if (newQty28!=null){             
                         double diff28 = newQty28 - oldDB28;            
                 if(dbQty28 >= diff28){
-                        newDbQty28 = dbQty28 - diff28;
+                        //newDbQty28 = dbQty28 - diff28;
+                        newDbQty28 = Math.round((dbQty28 - diff28)*1000)/1000.00d;
                         entity.setAddprodqty8(newQty28);
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode28 + " to update " +name+ " production, You have just " +dbQty28+ " left in warehouse");
@@ -784,8 +810,9 @@ public class ProductionEJB {
          */
         //1    
         Double grandTotal = cost1 + cost2 + cost3 + cost4 + cost5 + cost6 + cost7 + cost8 + cost9 + cost10 + cost11 + cost12 + cost13 + cost14 + cost15 + cost16 + cost17 + cost18 + cost21 + cost22 + cost23 + cost24 + cost25 + cost26 + cost27 + cost28;
-        System.out.println("GrandTotal: " + grandTotal);        
-        entity.setActualqty6(grandTotal);
+        Double gT = Math.round(grandTotal*100)/100.00d;        
+        System.out.println("GrandTotal: " + gT);        
+        entity.setActualqty6(gT);
           //double grandTotal = cost1 + cost2;
         //2
         Double actualQuantity = entity.getRequiredqty();
@@ -825,81 +852,143 @@ public class ProductionEJB {
                 if(update){
                     if(!inputCode1.isEmpty()){    
                         pwr.updateWarehouse(newDbQty1, sBatch1);
+                        if(newQty1 > oldDB1){
+                          pwr.populateWarehouseIssue(inputCode1, name, newQty1, editedBy, dateEdited, dbQty1, newDbQty1);  
+                        }
                     }
                     if(!inputCode2.isEmpty()){
                         pwr.updateWarehouse(newDbQty2, sBatch2);
+                        if(newQty2 > oldDB2){
+                          pwr.populateWarehouseIssue(inputCode2, name, newQty2, editedBy, dateEdited, dbQty2, newDbQty2);  
+                        }                        
                     }
                     if(!inputCode3.isEmpty()){
                         pwr.updateWarehouse(newDbQty3, sBatch3);
+                        if(newQty3 > oldDB3){
+                          pwr.populateWarehouseIssue(inputCode3, name, newQty3, editedBy, dateEdited, dbQty3, newDbQty3);  
+                        }                        
                     }
                     if(!inputCode4.isEmpty()){
                         pwr.updateWarehouse(newDbQty4, sBatch4);
+                        if(newQty4 > oldDB4){
+                          pwr.populateWarehouseIssue(inputCode4, name, newQty4, editedBy, dateEdited, dbQty4, newDbQty4);  
+                        }                        
                     }
                     if(!inputCode5.isEmpty()){
                         pwr.updateWarehouse(newDbQty5, sBatch5);
+                        if(newQty5 > oldDB5){
+                          pwr.populateWarehouseIssue(inputCode5, name, newQty5, editedBy, dateEdited, dbQty5, newDbQty5);  
+                        }                        
                     }
                     if(!inputCode6.isEmpty()){
                         pwr.updateWarehouse(newDbQty6, sBatch6);
+                        if(newQty6 > oldDB6){
+                          pwr.populateWarehouseIssue(inputCode6, name, newQty6, editedBy, dateEdited, dbQty6, newDbQty6);  
+                        }                        
                     }
                     if(!inputCode7.isEmpty()){
                         pwr.updateWarehouse(newDbQty7, sBatch7);
+                        if(newQty7 > oldDB7){
+                          pwr.populateWarehouseIssue(inputCode7, name, newQty7, editedBy, dateEdited, dbQty7, newDbQty7);  
+                        }                        
                     }
                     if(!inputCode8.isEmpty()){
                         pwr.updateWarehouse(newDbQty8, sBatch8);
+                        if(newQty8 > oldDB8){
+                          pwr.populateWarehouseIssue(inputCode8, name, newQty8, editedBy, dateEdited, dbQty8, newDbQty8);  
+                        }                        
                     }
                     if(!inputCode9.isEmpty()){
                         pwr.updateWarehouse(newDbQty9, sBatch9);
+                        if(newQty9 > oldDB9){
+                          pwr.populateWarehouseIssue(inputCode9, name, newQty9, editedBy, dateEdited, dbQty9, newDbQty9);  
+                        }                        
                     }
                     if(!inputCode10.isEmpty()){
                         pwr.updateWarehouse(newDbQty10, sBatch10);
+                        if(newQty10 > oldDB10){
+                          pwr.populateWarehouseIssue(inputCode10, name, newQty10, editedBy, dateEdited, dbQty10, newDbQty10);  
+                        }                        
                     }
                     if(!inputCode11.isEmpty()){
                         pwr.updateWarehouse(newDbQty11, sBatch11);
+                        if(newQty11 > oldDB11){
+                          pwr.populateWarehouseIssue(inputCode11, name, newQty11, editedBy, dateEdited, dbQty11, newDbQty11);  
+                        }                        
                     }
                     if(!inputCode12.isEmpty()){
                         pwr.updateWarehouse(newDbQty12, sBatch12);
+                        if(newQty12 > oldDB12){
+                          pwr.populateWarehouseIssue(inputCode12, name, newQty12, editedBy, dateEdited, dbQty12, newDbQty12);  
+                        }                        
                     }
                     if(!inputCode13.isEmpty()){
                         pwr.updateWarehouse(newDbQty13, sBatch13);
+                        if(newQty13 > oldDB13){
+                          pwr.populateWarehouseIssue(inputCode13, name, newQty13, editedBy, dateEdited, dbQty13, newDbQty13);  
+                        }                        
                     }
                     if(!inputCode14.isEmpty()){
                         pwr.updateWarehouse(newDbQty14, sBatch14);
+                        if(newQty14 > oldDB14){
+                          pwr.populateWarehouseIssue(inputCode14, name, newQty14, editedBy, dateEdited, dbQty14, newDbQty14);  
+                        }                        
                     }
                     if(!inputCode15.isEmpty()){
                         pwr.updateWarehouse(newDbQty15, sBatch15);
+                        if(newQty15 > oldDB15){
+                          pwr.populateWarehouseIssue(inputCode15, name, newQty15, editedBy, dateEdited, dbQty15, newDbQty15);  
+                        }                        
                     }
                     if(!inputCode16.isEmpty()){
                         pwr.updateWarehouse(newDbQty16, sBatch16);
+                        if(newQty16 > oldDB16){
+                          pwr.populateWarehouseIssue(inputCode16, name, newQty16, editedBy, dateEdited, dbQty16, newDbQty16);  
+                        }                        
                     }
                     if(!inputCode17.isEmpty()){
                         pwr.updateWarehouse(newDbQty17, sBatch17);
+                        if(newQty17 > oldDB17){
+                          pwr.populateWarehouseIssue(inputCode17, name, newQty17, editedBy, dateEdited, dbQty17, newDbQty17);  
+                        }                        
                     }
                     if(!inputCode18.isEmpty()){
                         pwr.updateWarehouse(newDbQty18, sBatch18);
+                        if(newQty18 > oldDB18){
+                          pwr.populateWarehouseIssue(inputCode18, name, newQty18, editedBy, dateEdited, dbQty18, newDbQty18);  
+                        }                        
                     }
                     if(inputCode21!=null){
                         pwr.updateWarehouse(newDbQty21, sBatch21);
+                        pwr.populateWarehouseIssue(inputCode21, name, newQty21, editedBy, dateEdited, dbQty21, newDbQty21);
                     }
                     if(inputCode22!=null){
                         pwr.updateWarehouse(newDbQty22, sBatch22);
+                        pwr.populateWarehouseIssue(inputCode22, name, newQty22, editedBy, dateEdited, dbQty22, newDbQty22);
                     }
                     if(inputCode23!=null){
                         pwr.updateWarehouse(newDbQty23, sBatch23);
+                        pwr.populateWarehouseIssue(inputCode23, name, newQty23, editedBy, dateEdited, dbQty23, newDbQty23);
                     }
                     if(inputCode24!=null){
                         pwr.updateWarehouse(newDbQty24, sBatch24);
+                        pwr.populateWarehouseIssue(inputCode24, name, newQty24, editedBy, dateEdited, dbQty24, newDbQty24);
                     } 
                     if(inputCode25!=null){
                         pwr.updateWarehouse(newDbQty25, sBatch25);
+                        pwr.populateWarehouseIssue(inputCode25, name, newQty25, editedBy, dateEdited, dbQty25, newDbQty25);
                     }
                     if(inputCode26!=null){
                         pwr.updateWarehouse(newDbQty26, sBatch26);
+                        pwr.populateWarehouseIssue(inputCode26, name, newQty26, editedBy, dateEdited, dbQty26, newDbQty26);
                     }
                     if(inputCode27!=null){
                         pwr.updateWarehouse(newDbQty27, sBatch27);
+                        pwr.populateWarehouseIssue(inputCode27, name, newQty27, editedBy, dateEdited, dbQty27, newDbQty27);
                     }
                     if(inputCode28!=null){
                         pwr.updateWarehouse(newDbQty28, sBatch28);
+                        pwr.populateWarehouseIssue(inputCode28, name, newQty28, editedBy, dateEdited, dbQty28, newDbQty28);
                     }                    
                     entityManager.merge(entity);
                     JsfUtil.addSuccessMessage("Production updated successfully");
@@ -1054,7 +1143,8 @@ public class ProductionEJB {
         //set quantity 1 in database
         if (newQty1!=null){
                 if(dbQty1 >= newQty1){
-                    newDbQty1 = dbQty1 - newQty1;
+                    newDbQty1 = Math.round((dbQty1 - newQty1)*1000)/1000.00d;
+                    //Double gT = Math.round(grandTotal*100)/100.00d;
                     entity.setProductionqty1(newQty1);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode1 + " to make " +name+ " production, You have just " +dbQty1+ " left in warehouse");
@@ -1065,7 +1155,7 @@ public class ProductionEJB {
         //set quantity 2 in database
         if (newQty2!=null){
                 if(dbQty2 >= newQty2){
-                    newDbQty2 = dbQty2 - newQty2;
+                    newDbQty2 = Math.round((dbQty2 - newQty2)*1000)/1000.00d;
                     entity.setProductionqty2(newQty2);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode2 + " to make " +name+ " production, You have just " +dbQty2+ " left in warehouse");
@@ -1076,7 +1166,7 @@ public class ProductionEJB {
         //set quantity 3 in database
         if (newQty3!=null){
                 if(dbQty3 >= newQty3){
-                    newDbQty3 = dbQty3 - newQty3;
+                    newDbQty3 = Math.round((dbQty3 - newQty3)*1000)/1000.00d;
                     entity.setProductionqty3(newQty3);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode3 + " to make " +name+ " production, You have just " +dbQty3+ " left in warehouse");
@@ -1087,7 +1177,7 @@ public class ProductionEJB {
         //set quantity 4 in database
         if (newQty4!=null){
                 if(dbQty4 >= newQty4){
-                    newDbQty4 = dbQty4 - newQty4;
+                    newDbQty4 = Math.round((dbQty4 - newQty4)*1000)/1000.00d;
                     entity.setProductionqty4(newQty4);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode4 + " to make " +name+ " production, You have just " +dbQty4+ " left in warehouse");
@@ -1098,7 +1188,7 @@ public class ProductionEJB {
         //set quantity 5 in database
         if (newQty5!=null){
                 if(dbQty5 >= newQty5){
-                    newDbQty5 = dbQty5 - newQty5;
+                    newDbQty5 = Math.round((dbQty5 - newQty5)*1000)/1000.00d;
                     entity.setProductionqty5(newQty5);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode5 + " to make " +name+ " production, You have just " +dbQty5+ " left in warehouse");
@@ -1109,7 +1199,7 @@ public class ProductionEJB {
         //set quantity 6 in database
         if (newQty6!=null){
                 if(dbQty6 >= newQty6){
-                    newDbQty6 = dbQty6 - newQty6;
+                    newDbQty6 = Math.round((dbQty6 - newQty6)*1000)/1000.00d;
                     entity.setProductionqty6(newQty6);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode6 + " to make " +name+ " production, You have just " +dbQty6+ " left in warehouse");
@@ -1120,7 +1210,7 @@ public class ProductionEJB {
         //set quantity 7 in database
         if (newQty7!=null){
                 if(dbQty7 >= newQty7){
-                    newDbQty7 = dbQty7 - newQty7;
+                    newDbQty7 = Math.round((dbQty7 - newQty7)*1000)/1000.00d;
                     entity.setProductionqty7(newQty7);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode7 + " to make " +name+ " production, You have just " +dbQty7+ " left in warehouse");
@@ -1131,7 +1221,7 @@ public class ProductionEJB {
         //set quantity 8 in database
         if (newQty8!=null){
                 if(dbQty8 >= newQty8){
-                    newDbQty8 = dbQty8 - newQty8;
+                    newDbQty8 = Math.round((dbQty8 - newQty8)*1000)/1000.00d;
                     entity.setProductionqty8(newQty8);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode8 + " to make " +name+ " production, You have just " +dbQty8+ " left in warehouse");
@@ -1142,7 +1232,7 @@ public class ProductionEJB {
         //set quantity 9 in database
         if (newQty9!=null){
                 if(dbQty9 >= newQty9){
-                    newDbQty9 = dbQty9 - newQty9;
+                    newDbQty9 = Math.round((dbQty9 - newQty9)*1000)/1000.00d;
                     entity.setProductionqty9(newQty9);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode9 + " to make " +name+ " production, You have just " +dbQty9+ " left in warehouse");
@@ -1153,7 +1243,7 @@ public class ProductionEJB {
         //set quantity 10 in database
         if (newQty10!=null){
                 if(dbQty10 >= newQty10){
-                    newDbQty10 = dbQty10 - newQty10;
+                    newDbQty10 = Math.round((dbQty10 - newQty10)*1000)/1000.00d;
                     entity.setProductionqty10(newQty10);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode10 + " to make " +name+ " production, You have just " +dbQty10+ " left in warehouse");
@@ -1164,7 +1254,7 @@ public class ProductionEJB {
         //set quantity 11 in database
         if (newQty11!=null){
                 if(dbQty11 >= newQty11){
-                    newDbQty11 = dbQty11 - newQty11;
+                    newDbQty11 = Math.round((dbQty11 - newQty11)*1000)/1000.00d;
                     entity.setProductionqty11(newQty11);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode11 + " to make " +name+ " production, You have just " +dbQty11+ " left in warehouse");
@@ -1175,7 +1265,7 @@ public class ProductionEJB {
         //set quantity 12 in database
         if (newQty12!=null){
                 if(dbQty12 >= newQty12){
-                    newDbQty12 = dbQty12 - newQty12;
+                    newDbQty12 = Math.round((dbQty12 - newQty12)*1000)/1000.00d;
                     entity.setProductionqty12(newQty12);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode12 + " to make " +name+ " production, You have just " +dbQty12+ " left in warehouse");
@@ -1186,7 +1276,7 @@ public class ProductionEJB {
         //set quantity 13 in database
         if (newQty13!=null){
                 if(dbQty13 >= newQty13){
-                    newDbQty13 = dbQty13 - newQty13;
+                    newDbQty13 = Math.round((dbQty13 - newQty13)*1000)/1000.00d;
                     entity.setProductionqty13(newQty13);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode13 + " to make " +name+ " production, You have just " +dbQty13+ " left in warehouse");
@@ -1197,7 +1287,7 @@ public class ProductionEJB {
         //set quantity 14 in database
         if (newQty14!=null){
                 if(dbQty14 >= newQty14){
-                    newDbQty14 = dbQty14 - newQty14;
+                    newDbQty14 = Math.round((dbQty14 - newQty14)*1000)/1000.00d;
                     entity.setProductionqty14(newQty14);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode14 + " to make " +name+ " production, You have just " +dbQty14+ " left in warehouse");
@@ -1208,7 +1298,7 @@ public class ProductionEJB {
         //set quantity 15 in database
         if (newQty15!=null){
                 if(dbQty15 >= newQty15){
-                    newDbQty15 = dbQty15 - newQty15;
+                    newDbQty15 = Math.round((dbQty15 - newQty15)*1000)/1000.00d;
                     entity.setProductionqty15(newQty15);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode15 + " to make " +name+ " production, You have just " +dbQty15+ " left in warehouse");
@@ -1219,7 +1309,7 @@ public class ProductionEJB {
         //set quantity 16 in database
         if (newQty16!=null){
                 if(dbQty16 >= newQty16){
-                    newDbQty16 = dbQty16 - newQty16;
+                    newDbQty16 = Math.round((dbQty16 - newQty16)*1000)/1000.00d;
                     entity.setProductionqty16(newQty16);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode16 + " to make " +name+ " production, You have just " +dbQty16+ " left in warehouse");
@@ -1230,7 +1320,7 @@ public class ProductionEJB {
         //set quantity 17 in database
         if (newQty17!=null){
                 if(dbQty17 >= newQty17){
-                    newDbQty17 = dbQty17 - newQty17;
+                    newDbQty17 = Math.round((dbQty17 - newQty17)*1000)/1000.00d;
                     entity.setProductionqty17(newQty17);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode17 + " to make " +name+ " production, You have just " +dbQty17+ " left in warehouse");
@@ -1241,7 +1331,7 @@ public class ProductionEJB {
         //set quantity 18 in database
         if (newQty18!=null){
                 if(dbQty18 >= newQty18){
-                    newDbQty18 = dbQty18 - newQty18;
+                    newDbQty18 = Math.round((dbQty18 - newQty18)*1000)/1000.00d;
                     entity.setProductionqty18(newQty18);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode18 + " to make " +name+ " production, You have just " +dbQty18+ " left in warehouse");
@@ -1252,7 +1342,7 @@ public class ProductionEJB {
         //set additional quantity21 in database
         if (newQty21!=null){
                 if(dbQty21 >= newQty21){
-                    newDbQty21 = dbQty21 - newQty21;
+                    newDbQty21 = Math.round((dbQty21 - newQty21)*1000)/1000.00d;
                     entity.setAddprodqty1(newQty21);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode21 + " to make " +name+ " production, You have just " +dbQty21+ " left in warehouse");
@@ -1263,7 +1353,7 @@ public class ProductionEJB {
         //set additional quantity22 in database
         if (newQty22!=null){
                 if(dbQty22 >= newQty22){
-                    newDbQty22 = dbQty22 - newQty22;
+                    newDbQty22 = Math.round((dbQty22 - newQty22)*1000)/1000.00d;
                     entity.setAddprodqty2(newQty22);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode22 + " to make " +name+ " production, You have just " +dbQty22+ " left in warehouse");
@@ -1274,7 +1364,7 @@ public class ProductionEJB {
         //set additional quantity23 in database
         if (newQty23!=null){
                 if(dbQty23 >= newQty23){
-                    newDbQty23 = dbQty23 - newQty23;
+                    newDbQty23 = Math.round((dbQty23 - newQty23)*1000)/1000.00d;
                     entity.setAddprodqty3(newQty23);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode23 + " to make " +name+ " production, You have just " +dbQty23+ " left in warehouse");
@@ -1285,7 +1375,7 @@ public class ProductionEJB {
         //set additional quantity24 in database
         if (newQty24!=null){
                 if(dbQty24 >= newQty24){
-                    newDbQty24 = dbQty24 - newQty24;
+                    newDbQty24 = Math.round((dbQty24 - newQty24)*1000)/1000.00d;
                     entity.setAddprodqty4(newQty24);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode24 + " to make " +name+ " production, You have just " +dbQty24+ " left in warehouse");
@@ -1296,7 +1386,7 @@ public class ProductionEJB {
         //set additional quantity25 in database
         if (newQty25!=null){
                 if(dbQty25 >= newQty25){
-                    newDbQty25 = dbQty25 - newQty25;
+                    newDbQty25 = Math.round((dbQty25 - newQty25)*1000)/1000.00d;
                     entity.setAddprodqty5(newQty25);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode25 + " to make " +name+ " production, You have just " +dbQty25+ " left in warehouse");
@@ -1307,7 +1397,7 @@ public class ProductionEJB {
         //set additional quantity26 in database
         if (newQty26!=null){
                 if(dbQty26 >= newQty26){
-                    newDbQty26 = dbQty26 - newQty26;
+                    newDbQty26 = Math.round((dbQty26 - newQty26)*1000)/1000.00d;
                     entity.setAddprodqty6(newQty26);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode26 + " to make " +name+ " production, You have just " +dbQty26+ " left in warehouse");
@@ -1318,7 +1408,7 @@ public class ProductionEJB {
         //set additional quantity27 in database
         if (newQty27!=null){
                 if(dbQty27 >= newQty27){
-                    newDbQty27 = dbQty27 - newQty27;
+                    newDbQty27 = Math.round((dbQty27 - newQty27)*1000)/1000.00d;
                     entity.setAddprodqty7(newQty27);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode27 + " to make " +name+ " production, You have just " +dbQty27+ " left in warehouse");
@@ -1329,7 +1419,7 @@ public class ProductionEJB {
         //set additional quantity28 in database
         if (newQty28!=null){
                 if(dbQty28 >= newQty28){
-                    newDbQty28 = dbQty28 - newQty28;
+                    newDbQty28 = Math.round((dbQty28 - newQty28)*1000)/1000.00d;
                     entity.setAddprodqty8(newQty28);
                 }else{
                     JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode28 + " to make " +name+ " production, You have just " +dbQty28+ " left in warehouse");
@@ -1558,9 +1648,10 @@ public class ProductionEJB {
          * ActualQty7 = packageCost which is actual quantity multiplied by price of packaging
          */
         //1    
-        Double grandTotal = cost1 + cost2 + cost3 + cost4 + cost5 + cost6 + cost7 + cost8 + cost9 + cost10 + cost11 + cost12 + cost13 + cost14 + cost15 + cost16 + cost17 + cost18 + cost21 + cost22 + cost23 + cost24 + cost25 + cost26 + cost27 + cost28;
-        System.out.println("GrandTotal: " + grandTotal);        
-        entity.setActualqty6(grandTotal);
+        Double grandTotal = cost1 + cost2 + cost3 + cost4 + cost5 + cost6 + cost7 + cost8 + cost9 + cost10 + cost11 + cost12 + cost13 + cost14 + cost15 + cost16 + cost17 + cost18 + cost21 + cost22 + cost23 + cost24 + cost25 + cost26 + cost27 + cost28;        
+        Double gT = Math.round(grandTotal*100)/100.00d;        
+        System.out.println("GrandTotal: " + gT);        
+        entity.setActualqty6(gT);
           //double grandTotal = cost1 + cost2;
         //2
         Double actualQuantity = entity.getRequiredqty();
