@@ -269,7 +269,7 @@ public class ProductionEJB {
                 if(dbQty2 >= diff2){
                         //newDbQty2 = dbQty2 - diff2;
                         newDbQty2 = Math.round((dbQty2 - diff2)*1000)/1000.00d;
-                        entity.setProductionqty1(newQty2);
+                        entity.setProductionqty2(newQty2);                       
                     }else{
                         JsfUtil.addErrorMessage("Not Enough quantity of " + inputCode2 + " to update " +name+ " production, You have just " +dbQty2+ " left in warehouse");
                         update = false;
@@ -853,147 +853,184 @@ public class ProductionEJB {
                     if(!inputCode1.isEmpty()){    
                         pwr.updateWarehouse(newDbQty1, sBatch1);
                         if(newQty1 > oldDB1){
-                          pwr.populateWarehouseIssue(inputCode1, name, newQty1, editedBy, dateEdited, dbQty1, newDbQty1);  
+                          pwr.populateWarehouseIssue(inputCode1, name, newQty1 - oldDB1, editedBy, dateEdited, dbQty1, newDbQty1);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode1, name, oldDB1 - newQty1, dbQty1, newDbQty1);
                         }
                     }
                     if(!inputCode2.isEmpty()){
                         pwr.updateWarehouse(newDbQty2, sBatch2);
                         if(newQty2 > oldDB2){
-                          pwr.populateWarehouseIssue(inputCode2, name, newQty2, editedBy, dateEdited, dbQty2, newDbQty2);  
+                          pwr.populateWarehouseIssue(inputCode2, name, newQty2 - oldDB2, editedBy, dateEdited, dbQty2, newDbQty2);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode2, name, oldDB2 - newQty2, dbQty2, newDbQty2);
                         }                        
                     }
                     if(!inputCode3.isEmpty()){
                         pwr.updateWarehouse(newDbQty3, sBatch3);
                         if(newQty3 > oldDB3){
-                          pwr.populateWarehouseIssue(inputCode3, name, newQty3, editedBy, dateEdited, dbQty3, newDbQty3);  
+                          pwr.populateWarehouseIssue(inputCode3, name, newQty3 - oldDB3, editedBy, dateEdited, dbQty3, newDbQty3);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode3, name, oldDB3 - newQty3, dbQty3, newDbQty3);
                         }                        
                     }
                     if(!inputCode4.isEmpty()){
                         pwr.updateWarehouse(newDbQty4, sBatch4);
                         if(newQty4 > oldDB4){
-                          pwr.populateWarehouseIssue(inputCode4, name, newQty4, editedBy, dateEdited, dbQty4, newDbQty4);  
+                          pwr.populateWarehouseIssue(inputCode4, name, newQty4 - oldDB4, editedBy, dateEdited, dbQty4, newDbQty4);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode4, name, oldDB4 - newQty4, dbQty4, newDbQty4);
                         }                        
                     }
                     if(!inputCode5.isEmpty()){
                         pwr.updateWarehouse(newDbQty5, sBatch5);
                         if(newQty5 > oldDB5){
-                          pwr.populateWarehouseIssue(inputCode5, name, newQty5, editedBy, dateEdited, dbQty5, newDbQty5);  
+                          pwr.populateWarehouseIssue(inputCode5, name, newQty5 - oldDB5, editedBy, dateEdited, dbQty5, newDbQty5);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode5, name, oldDB5 - newQty5, dbQty5, newDbQty5);
                         }                        
                     }
                     if(!inputCode6.isEmpty()){
                         pwr.updateWarehouse(newDbQty6, sBatch6);
                         if(newQty6 > oldDB6){
-                          pwr.populateWarehouseIssue(inputCode6, name, newQty6, editedBy, dateEdited, dbQty6, newDbQty6);  
+                          pwr.populateWarehouseIssue(inputCode6, name, newQty6 - oldDB6, editedBy, dateEdited, dbQty6, newDbQty6);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode6, name, oldDB6 - newQty6, dbQty6, newDbQty6);
                         }                        
                     }
                     if(!inputCode7.isEmpty()){
                         pwr.updateWarehouse(newDbQty7, sBatch7);
                         if(newQty7 > oldDB7){
-                          pwr.populateWarehouseIssue(inputCode7, name, newQty7, editedBy, dateEdited, dbQty7, newDbQty7);  
+                          pwr.populateWarehouseIssue(inputCode7, name, newQty7 - oldDB7, editedBy, dateEdited, dbQty7, newDbQty7);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode7, name, oldDB7 - newQty7, dbQty7, newDbQty7);
                         }                        
                     }
                     if(!inputCode8.isEmpty()){
                         pwr.updateWarehouse(newDbQty8, sBatch8);
                         if(newQty8 > oldDB8){
-                          pwr.populateWarehouseIssue(inputCode8, name, newQty8, editedBy, dateEdited, dbQty8, newDbQty8);  
+                          pwr.populateWarehouseIssue(inputCode8, name, newQty8 - oldDB8, editedBy, dateEdited, dbQty8, newDbQty8);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode8, name, oldDB8 - newQty8, dbQty8, newDbQty8);
                         }                        
                     }
                     if(!inputCode9.isEmpty()){
                         pwr.updateWarehouse(newDbQty9, sBatch9);
                         if(newQty9 > oldDB9){
-                          pwr.populateWarehouseIssue(inputCode9, name, newQty9, editedBy, dateEdited, dbQty9, newDbQty9);  
+                          pwr.populateWarehouseIssue(inputCode9, name, newQty9 - oldDB9, editedBy, dateEdited, dbQty9, newDbQty9);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode9, name, oldDB9 - newQty9, dbQty9, newDbQty9);
                         }                        
                     }
                     if(!inputCode10.isEmpty()){
                         pwr.updateWarehouse(newDbQty10, sBatch10);
                         if(newQty10 > oldDB10){
-                          pwr.populateWarehouseIssue(inputCode10, name, newQty10, editedBy, dateEdited, dbQty10, newDbQty10);  
+                          pwr.populateWarehouseIssue(inputCode10, name, newQty10 - oldDB10, editedBy, dateEdited, dbQty10, newDbQty10);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode10, name, oldDB10 - newQty10, dbQty10, newDbQty10);
                         }                        
                     }
                     if(!inputCode11.isEmpty()){
                         pwr.updateWarehouse(newDbQty11, sBatch11);
                         if(newQty11 > oldDB11){
-                          pwr.populateWarehouseIssue(inputCode11, name, newQty11, editedBy, dateEdited, dbQty11, newDbQty11);  
+                          pwr.populateWarehouseIssue(inputCode11, name, newQty11 - oldDB11, editedBy, dateEdited, dbQty11, newDbQty11);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode11, name, oldDB11 - newQty11, dbQty11, newDbQty11);
                         }                        
                     }
                     if(!inputCode12.isEmpty()){
                         pwr.updateWarehouse(newDbQty12, sBatch12);
                         if(newQty12 > oldDB12){
-                          pwr.populateWarehouseIssue(inputCode12, name, newQty12, editedBy, dateEdited, dbQty12, newDbQty12);  
+                          pwr.populateWarehouseIssue(inputCode12, name, newQty12 - oldDB12, editedBy, dateEdited, dbQty12, newDbQty12);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode12, name, oldDB12 - newQty12, dbQty12, newDbQty12);
                         }                        
                     }
                     if(!inputCode13.isEmpty()){
                         pwr.updateWarehouse(newDbQty13, sBatch13);
                         if(newQty13 > oldDB13){
-                          pwr.populateWarehouseIssue(inputCode13, name, newQty13, editedBy, dateEdited, dbQty13, newDbQty13);  
+                          pwr.populateWarehouseIssue(inputCode13, name, newQty13 - oldDB13, editedBy, dateEdited, dbQty13, newDbQty13);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode13, name, oldDB13 - newQty13, dbQty13, newDbQty13);
                         }                        
                     }
                     if(!inputCode14.isEmpty()){
                         pwr.updateWarehouse(newDbQty14, sBatch14);
                         if(newQty14 > oldDB14){
-                          pwr.populateWarehouseIssue(inputCode14, name, newQty14, editedBy, dateEdited, dbQty14, newDbQty14);  
+                          pwr.populateWarehouseIssue(inputCode14, name, newQty14 - oldDB14, editedBy, dateEdited, dbQty14, newDbQty14);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode14, name, oldDB1 - newQty1, dbQty1, newDbQty1);
                         }                        
                     }
                     if(!inputCode15.isEmpty()){
                         pwr.updateWarehouse(newDbQty15, sBatch15);
                         if(newQty15 > oldDB15){
-                          pwr.populateWarehouseIssue(inputCode15, name, newQty15, editedBy, dateEdited, dbQty15, newDbQty15);  
+                          pwr.populateWarehouseIssue(inputCode15, name, newQty15 - oldDB15, editedBy, dateEdited, dbQty15, newDbQty15);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode15, name, oldDB15 - newQty15, dbQty15, newDbQty15);
                         }                        
                     }
                     if(!inputCode16.isEmpty()){
                         pwr.updateWarehouse(newDbQty16, sBatch16);
                         if(newQty16 > oldDB16){
-                          pwr.populateWarehouseIssue(inputCode16, name, newQty16, editedBy, dateEdited, dbQty16, newDbQty16);  
+                          pwr.populateWarehouseIssue(inputCode16, name, newQty16 - oldDB16, editedBy, dateEdited, dbQty16, newDbQty16);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode16, name, oldDB16 - newQty16, dbQty16, newDbQty16);
                         }                        
                     }
                     if(!inputCode17.isEmpty()){
                         pwr.updateWarehouse(newDbQty17, sBatch17);
                         if(newQty17 > oldDB17){
-                          pwr.populateWarehouseIssue(inputCode17, name, newQty17, editedBy, dateEdited, dbQty17, newDbQty17);  
+                          pwr.populateWarehouseIssue(inputCode17, name, newQty17 - oldDB17, editedBy, dateEdited, dbQty17, newDbQty17);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode17, name, oldDB17 - newQty17, dbQty17, newDbQty17);
                         }                        
                     }
                     if(!inputCode18.isEmpty()){
                         pwr.updateWarehouse(newDbQty18, sBatch18);
                         if(newQty18 > oldDB18){
-                          pwr.populateWarehouseIssue(inputCode18, name, newQty18, editedBy, dateEdited, dbQty18, newDbQty18);  
+                          pwr.populateWarehouseIssue(inputCode18, name, newQty18 - oldDB18, editedBy, dateEdited, dbQty18, newDbQty18);  
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode18, name, oldDB18 - newQty18, dbQty18, newDbQty18);
                         }                        
                     }
                     if(inputCode21!=null){
                         pwr.updateWarehouse(newDbQty21, sBatch21);
-                        pwr.populateWarehouseIssue(inputCode21, name, newQty21, editedBy, dateEdited, dbQty21, newDbQty21);
+                        pwr.populateWarehouseIssue(inputCode21, name, newQty21 - oldDB21, editedBy, dateEdited, dbQty21, newDbQty21);
                     }
                     if(inputCode22!=null){
                         pwr.updateWarehouse(newDbQty22, sBatch22);
-                        pwr.populateWarehouseIssue(inputCode22, name, newQty22, editedBy, dateEdited, dbQty22, newDbQty22);
+                        pwr.populateWarehouseIssue(inputCode22, name, newQty22 - oldDB22, editedBy, dateEdited, dbQty22, newDbQty22);
                     }
                     if(inputCode23!=null){
                         pwr.updateWarehouse(newDbQty23, sBatch23);
-                        pwr.populateWarehouseIssue(inputCode23, name, newQty23, editedBy, dateEdited, dbQty23, newDbQty23);
+                        pwr.populateWarehouseIssue(inputCode23, name, newQty23 - oldDB23, editedBy, dateEdited, dbQty23, newDbQty23);
                     }
                     if(inputCode24!=null){
                         pwr.updateWarehouse(newDbQty24, sBatch24);
-                        pwr.populateWarehouseIssue(inputCode24, name, newQty24, editedBy, dateEdited, dbQty24, newDbQty24);
+                        pwr.populateWarehouseIssue(inputCode24, name, newQty24 - oldDB24, editedBy, dateEdited, dbQty24, newDbQty24);
                     } 
                     if(inputCode25!=null){
                         pwr.updateWarehouse(newDbQty25, sBatch25);
-                        pwr.populateWarehouseIssue(inputCode25, name, newQty25, editedBy, dateEdited, dbQty25, newDbQty25);
+                        pwr.populateWarehouseIssue(inputCode25, name, newQty25 - oldDB25, editedBy, dateEdited, dbQty25, newDbQty25);
                     }
                     if(inputCode26!=null){
                         pwr.updateWarehouse(newDbQty26, sBatch26);
-                        pwr.populateWarehouseIssue(inputCode26, name, newQty26, editedBy, dateEdited, dbQty26, newDbQty26);
+                        pwr.populateWarehouseIssue(inputCode26, name, newQty26 - oldDB26, editedBy, dateEdited, dbQty26, newDbQty26);
                     }
                     if(inputCode27!=null){
                         pwr.updateWarehouse(newDbQty27, sBatch27);
-                        pwr.populateWarehouseIssue(inputCode27, name, newQty27, editedBy, dateEdited, dbQty27, newDbQty27);
+                        pwr.populateWarehouseIssue(inputCode27, name, newQty27 - oldDB27, editedBy, dateEdited, dbQty27, newDbQty27);
                     }
                     if(inputCode28!=null){
                         pwr.updateWarehouse(newDbQty28, sBatch28);
-                        pwr.populateWarehouseIssue(inputCode28, name, newQty28, editedBy, dateEdited, dbQty28, newDbQty28);
+                        pwr.populateWarehouseIssue(inputCode28, name, newQty28 - oldDB28, editedBy, dateEdited, dbQty28, newDbQty28);
                     }                    
                     entityManager.merge(entity);
                     JsfUtil.addSuccessMessage("Production updated successfully");
                 }
         
+                persist = true;
     }
 
     
