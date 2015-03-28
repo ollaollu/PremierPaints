@@ -959,7 +959,7 @@ public class ProductionEJB {
                         if(newQty14 > oldDB14){
                           pwr.populateWarehouseIssue(inputCode14, name, newQty14 - oldDB14, editedBy, dateEdited, dbQty14, newDbQty14);  
                         } else {
-                            pwr.updateWarehouseandReceived(inputCode14, name, oldDB1 - newQty1, dbQty1, newDbQty1);
+                            pwr.updateWarehouseandReceived(inputCode14, name, oldDB14 - newQty14, dbQty14, newDbQty14);
                         }                        
                     }
                     if(!inputCode15.isEmpty()){
