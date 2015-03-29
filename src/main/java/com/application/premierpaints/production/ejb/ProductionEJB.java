@@ -996,35 +996,67 @@ public class ProductionEJB {
                     }
                     if(inputCode21!=null){
                         pwr.updateWarehouse(newDbQty21, sBatch21);
+                        if(newQty21 > oldDB21){
                         pwr.populateWarehouseIssue(inputCode21, name, newQty21 - oldDB21, editedBy, dateEdited, dbQty21, newDbQty21);
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode21, name, oldDB21 - newQty21, dbQty21, newDbQty21);
+                        }
                     }
                     if(inputCode22!=null){
                         pwr.updateWarehouse(newDbQty22, sBatch22);
+                        if(newQty22 > oldDB22){
                         pwr.populateWarehouseIssue(inputCode22, name, newQty22 - oldDB22, editedBy, dateEdited, dbQty22, newDbQty22);
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode22, name, oldDB22 - newQty22, dbQty22, newDbQty22);
+                        }
                     }
                     if(inputCode23!=null){
                         pwr.updateWarehouse(newDbQty23, sBatch23);
+                        if(newQty23 > oldDB23){
                         pwr.populateWarehouseIssue(inputCode23, name, newQty23 - oldDB23, editedBy, dateEdited, dbQty23, newDbQty23);
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode23, name, oldDB23 - newQty23, dbQty23, newDbQty23);
+                        }
                     }
                     if(inputCode24!=null){
                         pwr.updateWarehouse(newDbQty24, sBatch24);
+                        if(newQty24 > oldDB24){
                         pwr.populateWarehouseIssue(inputCode24, name, newQty24 - oldDB24, editedBy, dateEdited, dbQty24, newDbQty24);
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode24, name, oldDB24 - newQty24, dbQty24, newDbQty24);
+                        }
                     } 
                     if(inputCode25!=null){
                         pwr.updateWarehouse(newDbQty25, sBatch25);
+                        if(newQty25 > oldDB25){
                         pwr.populateWarehouseIssue(inputCode25, name, newQty25 - oldDB25, editedBy, dateEdited, dbQty25, newDbQty25);
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode25, name, oldDB25 - newQty25, dbQty25, newDbQty25);
+                        }
                     }
                     if(inputCode26!=null){
                         pwr.updateWarehouse(newDbQty26, sBatch26);
+                        if(newQty26 > oldDB26){
                         pwr.populateWarehouseIssue(inputCode26, name, newQty26 - oldDB26, editedBy, dateEdited, dbQty26, newDbQty26);
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode26, name, oldDB26 - newQty26, dbQty26, newDbQty26);
+                        }
                     }
                     if(inputCode27!=null){
                         pwr.updateWarehouse(newDbQty27, sBatch27);
+                        if(newQty27 > oldDB27){
                         pwr.populateWarehouseIssue(inputCode27, name, newQty27 - oldDB27, editedBy, dateEdited, dbQty27, newDbQty27);
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode27, name, oldDB27 - newQty27, dbQty27, newDbQty27);
+                        }
                     }
                     if(inputCode28!=null){
                         pwr.updateWarehouse(newDbQty28, sBatch28);
+                        if(newQty28 > oldDB28){
                         pwr.populateWarehouseIssue(inputCode28, name, newQty28 - oldDB28, editedBy, dateEdited, dbQty28, newDbQty28);
+                        } else {
+                            pwr.updateWarehouseandReceived(inputCode28, name, oldDB28 - newQty28, dbQty28, newDbQty28);
+                        }
                     }                    
                     entityManager.merge(entity);
                     JsfUtil.addSuccessMessage("Production updated successfully");
